@@ -8,27 +8,39 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 import {
   Sheet,
   SheetClose,
   SheetContent,
+  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
 
-import { components } from "@/data"
+import { NavbarLinks, socialLinks } from "@/data"
 import { usePathname, useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden"
 import Image from "next/image"
+import { Button } from "./ui/button"
+import { Separator } from "@/components/ui/separator"
+import { ChevronDownIcon } from "lucide-react"
 
 const Navbar = () => {
-  const pathname = usePathname()
-  const router = useRouter()
+  const pathname = usePathname();
+  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false)
+  // track open state per dropdown (keyed by item.title)
+  const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({})
 
   // Handle scroll event
   useEffect(() => {
@@ -39,77 +51,69 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`flex items-center w-full justify-between shadow-md fixed z-20 px-6 md:px-12 py-4 ${
-        isScrolled ? "bg-transparent backdrop-blur" : "bg-transparent"
-      }`}
+      className={`flex items-center w-full justify-between shadow-md fixed z-20 px-6 md:px-12 py-4 gap-2.5 ${isScrolled ? "bg-transparent backdrop-blur" : "bg-transparent"
+        }`}
     >
       {/* Logo */}
-      
+      <Link href="/" className="flex items-center gap-2">
+        <Image src="/images/logo.png" alt="logo" width={60} height={60} />
+        <span className="md:hidden lg:block text-base font-semibold text-blue-100">NPF Pensions Limited</span>
+      </Link>
 
-      {/* Desktop View */}
-      <NavigationMenu viewport={false} className="max-md:hidden">
-        <NavigationMenuList>
-          {/* Example Dropdown */}
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Home</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                <li className="row-span-3">
-                  <NavigationMenuLink asChild>
-                    <a
-                      className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
-                      href="/"
-                    >
-                      <div className="mt-4 mb-2 text-lg font-medium">
-                        shadcn/ui
-                      </div>
-                      <p className="text-muted-foreground text-sm leading-tight">
-                        Beautifully designed components built with Tailwind CSS.
-                      </p>
-                    </a>
-                  </NavigationMenuLink>
-                </li>
-                <ListItem href="/docs" title="Introduction">
-                  Re-usable components built using Radix UI and Tailwind CSS.
-                </ListItem>
-                <ListItem href="/docs/installation" title="Installation">
-                  How to install dependencies and structure your app.
-                </ListItem>
-                <ListItem href="/docs/primitives/typography" title="Typography">
-                  Styles for headings, paragraphs, lists...etc
-                </ListItem>
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-
-          {/* Components Dropdown */}
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Components</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                {components.map((component) => (
-                  <ListItem
-                    key={component.title}
-                    title={component.title}
-                    href={component.href}
+      {/* Desktop Menu/Navbar */}
+      <div className="flex max-md:hidden lg:w-[818px] h-[50px] justify-center items-center lg:gap-2.5">
+        {
+          NavbarLinks.map((item) => {
+            const isActive = item.href === pathname;
+            const hasActiveChild = !!item.children && item.children.some(child => child.href === pathname)
+            return (
+              item.children ? (
+                <DropdownMenu
+                  key={item.title}
+                  open={!!openMenus[item.title]}
+                  onOpenChange={(val) =>
+                    setOpenMenus((prev) => ({ ...prev, [item.title]: val }))
+                  }
+                >
+                  <DropdownMenuTrigger
+                    className={`flex justify-center items-center md:text-sm lg:text-base font-semibold p-4 rounded-md bg-transparent focus-visible:outline-none focus-visible:ring-0 hover:text-white hover:bg-yellow-100 data-[state=open]:bg-yellow-100 data-[state=open]:text-white ${(hasActiveChild || openMenus[item.title]) ? "bg-yellow-100 text-white" : "text-black-100"
+                      }`}
                   >
-                    {component.description}
-                  </ListItem>
-                ))}
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
+                    {item.title}
+                    <ChevronDownIcon />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="xl:mt-3 bg-white-100">
+                    <ul className="flex w-screen gap-3 h-60 justify-center items-center ">
+                      {item.children.map((child) => (
+                        <DropdownItem
+                          key={child.title}
+                          title={child.title}
+                          icon={child.icon}
+                          onClick={() => {
+                            router.push(child.href)
+                            setOpenMenus((prev) => ({ ...prev, [item.title]: false }))
+                          }}
+                        />
+                      ))}
+                    </ul>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <Link
+                  href={item.href as string}
+                  key={item.title}
+                  className={`bg-transparent md:text-sm lg:text-base font-semibold p-4 rounded-md text-black-100 hover:text-white hover:bg-yellow-100 ${isActive ? "bg-yellow-100 text-white" : ""
+                    }`}
+                >
+                  {item.title}
+                </Link>
+              )
+            )
+          })}
+      </div>
 
-          {/* Simple Link */}
-          <NavigationMenuItem>
-            <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-              <Link href="/docs">Docs</Link>
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
 
-      {/* Mobile View */}
+      {/* Mobile Menu/Navbar */}
       <div className="hidden max-md:block">
         <Sheet>
           <SheetTrigger>
@@ -122,91 +126,154 @@ const Navbar = () => {
             />
           </SheetTrigger>
 
-          <SheetContent side="right" className="border-none bg-white">
-           <SheetHeader>
-            <SheetTitle className="text-xl">Mobile navigation menu</SheetTitle>
-           </SheetHeader>
-         
-            <SheetClose asChild>
-            {/* Mobile NavigationMenu */}
-            <NavigationMenu orientation="vertical" viewport={false} className="flex flex-col justify-start items-start h-full">
-              <NavigationMenuList className="flex flex-col gap-4 items-start">
-                {/* Home Dropdown */}
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger>Home</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="flex flex-col gap-2 p-4">
-                      <ListItem href="/" title="shadcn/ui">
-                        Beautifully designed components built with Tailwind CSS.
-                      </ListItem>
-                      <ListItem href="/docs" title="Introduction">
-                        Re-usable components built using Radix UI and Tailwind
-                        CSS.
-                      </ListItem>
-                      <ListItem href="/docs/installation" title="Installation">
-                        How to install dependencies and structure your app.
-                      </ListItem>
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
+          <SheetContent side="right" className="flex flex-col gap-6 w-full border-none bg-white">
+            <SheetHeader>
+              <VisuallyHidden>
+                <SheetTitle>Mobile Menu</SheetTitle>
+              </VisuallyHidden>
+              <div className="flex">
+                <SheetClose asChild>
+                  <Link href="/" className="flex items-center gap-2">
+                    <Image src="/images/logo.png" alt="logo" width={60} height={60} />
+                    <span className="md:hidden lg:block text-base font-semibold text-blue-100">NPF Pensions Limited</span>
+                  </Link>
+                </SheetClose>
+              </div>
+            </SheetHeader>
 
-                {/* Components Dropdown */}
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger>Components</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="flex flex-col gap-2 p-4">
-                      {components.map((component) => (
-                        <ListItem
-                          key={component.title}
-                          href={component.href}
-                          title={component.title}
-                        >
-                          {component.description}
-                        </ListItem>
-                      ))}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
+            <div className="flex flex-col p-3 w-full">
+              <nav className="flex flex-col gap-4 w-full">
+                <NavigationMenu orientation="vertical" viewport={false} className=" flex flex-col justify-start items-start w-full h-full">
+                  <NavigationMenuList className="flex flex-col gap-4 items-start w-full">
+                    {NavbarLinks.map((item) => {
+                      const isActive = item.href === pathname;
+                      const hasActiveChild = !!item.children && item.children.some(child => child.href === pathname);
+                      return (
+                        <NavigationMenuItem key={item.title} className="w-full">
+                          {item.children ? (
+                            <>
+                              <NavigationMenuTrigger className={`w-full flex justify-start items-center p-4 py-6.5 text-left md:text-sm lg:text-base font-semibold rounded-md bg-transparent focus-visible:outline-none focus-visible:ring-0 hover:text-white hover:bg-yellow-100 data-[state=open]:bg-yellow-100 data-[state=open]:hover:bg-yellow-100 data-[state=open]:focus:bg-yellow-100 ${(hasActiveChild || openMenus[item.title]) ? "bg-yellow-100 text-white" : "text-black-100"
+                                }`}>{item.title}</NavigationMenuTrigger>
+                              <NavigationMenuContent>
+                                <ul className="flex flex-col gap-2">
+                                  {item.children.map((child) => (
+                                    <ListItem
+                                      key={child.href}
+                                      title={child.title}
+                                      icon={child.icon}
+                                      href={child.href}
+                                    />
+                                  ))}
+                                </ul>
+                              </NavigationMenuContent>
+                            </>
+                          ) : (
+                            <NavigationMenuLink asChild>
+                              <SheetClose asChild>
+                                <Link
+                                  href={item.href as string}
+                                  className={`w-full text-left md:text-sm lg:text-base font-semibold rounded-md text-black-100 hover:text-white hover:bg-yellow-100 p-4 ${isActive ? "bg-yellow-100 text-white" : ""}`}
+                                >
+                                  {item.title}
+                                </Link>
+                              </SheetClose>
+                            </NavigationMenuLink>
+                          )}
+                        </NavigationMenuItem>
+                      )
+                    })}
+                  </NavigationMenuList>
+                </NavigationMenu>
+              </nav>
+            </div>
+            <Separator />
 
-                {/* Docs Link */}
-                <NavigationMenuItem>
-                  <NavigationMenuLink asChild>
-                    <Link href="/docs" className="px-4 py-2">
-                      Docs
-                    </Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-            </SheetClose>
+            <div className="flex flex-row justify-evenly gap-2 px-5">
+              {socialLinks.map((item) => (
+                <Link
+                  key={item.alt}
+                  href={item.href}
+                  className="group flex items-center"
+                  style={{ ["--icon-hover-color" as any]: item.color }}
+                >
+                  <div
+                    aria-hidden
+                    className="w-6 h-6 transition-colors duration-200 bg-grey-100 group-hover:bg-[var(--icon-hover-color)]"
+                    style={
+                      {
+                        WebkitMaskImage: `url(${item.icon})`,
+                        maskImage: `url(${item.icon})`,
+                        WebkitMaskRepeat: "no-repeat",
+                        maskRepeat: "no-repeat",
+                        WebkitMaskSize: "contain",
+                        maskSize: "contain",
+                        WebkitMaskPosition: "center",
+                        maskPosition: "center",
+                      } as React.CSSProperties
+                    }
+                  />
+                </Link>
+              ))}
+            </div>
+
+            <Separator />
+
+            <SheetFooter>
+              <Button asChild className="group md:w-52 h-14 bg-white-100 text-blue-100 border border-blue-100 hover:bg-blue-100 hover:text-white-100 transition-colors duration-200">
+                <a href="/login" className="text-base font-semibold flex items-center gap-2">
+                  <Image src="/icons/login.svg" width={20} height={20} alt="Log in" className="transition duration-200 group-hover:invert group-hover:brightness-0 group-hover:contrast-200" />
+                  Log In
+                </a>
+              </Button>
+            </SheetFooter>
           </SheetContent>
         </Sheet>
       </div>
+
+      <Button asChild className="group md:w-30 md:h-12 xl:w-52 max-md:hidden bg-white-100 text-blue-100 border border-blue-100 hover:bg-blue-100 hover:text-white-100 transition-colors duration-200">
+        <a href="/login" className="text-base font-semibold flex items-center gap-2">
+          <Image src="/icons/login.svg" width={20} height={20} alt="Log in" className="transition duration-200 group-hover:invert group-hover:brightness-0 group-hover:contrast-200" />
+          Log In
+        </a>
+      </Button>
     </nav>
   )
 }
 
 export default Navbar
 
-// Shared ListItem Component
 function ListItem({
   title,
-  children,
+  icon,
   href,
   ...props
-}: React.ComponentPropsWithoutRef<"li"> & { href: string }) {
+}: React.ComponentPropsWithoutRef<"li"> & { href: string, icon: string }) {
   return (
     <li {...props}>
       <NavigationMenuLink asChild>
-        <Link href={href}>
-          <div className="text-sm leading-none font-medium">{title}</div>
-          {children && (
-            <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
-              {children}
-            </p>
-          )}
-        </Link>
+        <SheetClose asChild>
+          <Link href={href} className="group flex flex-row justify-start items-center gap-2.5 rounded-[10px] bg-white border-2 border-green-100 hover:bg-yellow-100 hover:border-none transition-all duration-200">
+            <Image src={icon} alt={title as string} width={30} height={30} className="transition-all duration-200 group-hover:brightness-0 group-hover:invert" />
+            <p className="text-sm leading-none font-medium text-black-100 transition-all duration-200 group-hover:text-white">{title}</p>
+          </Link>
+        </SheetClose>
       </NavigationMenuLink>
+    </li>
+  )
+}
+
+function DropdownItem({
+  title,
+  icon,
+  onClick,
+  ...props
+}: React.ComponentPropsWithoutRef<"li"> & { onClick: () => void, icon: string }) {
+  return (
+    <li {...props} className="group">
+      <div onClick={onClick} className="flex flex-col items-center justify-center cursor-pointer w-[260px] h-[180px] gap-2.5 rounded-[10px] bg-white border-2 border-green-100 group-hover:bg-yellow-100 group-hover:border-none">
+        <Image src={icon} alt={title as string} width={80} height={80} className="transition duration-200 group-hover:invert group-hover:brightness-0 group-hover:contrast-200" />
+        <p className="text-base font-semibold text-black-100 group-hover:text-white text-center">{title}</p>
+      </div>
     </li>
   )
 }

@@ -4,6 +4,12 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --color-blue-100: #010163;
+  --color-yellow-100: #E8B30C;
+  --color-white-100: #F9F9F9;
+  --color-black-100: #2F2F2F;
+  --color-green-100: #148614;
+  --color-grey-100: #666666;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -114,7 +120,7 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border scroll-smooth outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
