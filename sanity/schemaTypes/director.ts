@@ -6,7 +6,7 @@ export const director = defineType({
   type: "document",
   fields: [
     defineField({
-      name: "id",
+      name: "index",
       type: "number", 
     }),
     defineField({
