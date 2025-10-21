@@ -2,6 +2,7 @@
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "motion/react";
 import React, { useEffect, useState, useRef } from "react";
+import OpenAccountButtons from "../OpenAccountButtons";
 
 export const ImagesSlider = ({
   images,
@@ -240,7 +241,7 @@ export const ImagesSlider = ({
               const { first, rest } = splitTitle(raw);
               return (
                 <h3
-                  className="font-bold text-6xl text-center py-4">
+                  className="font-bold text-5xl sm:text-6xl text-center py-4">
                   <span className="text-white">{first}</span>
                   {rest ? (
                     <>
@@ -257,15 +258,7 @@ export const ImagesSlider = ({
               {description?.[currentIndex]}
             </p>
 
-            <div className="flex flex-col md:flex-row gap-5">
-              <a href="/"  className="w-60 h-14 bg-blue-100 hover:bg-yellow-100 text-base font-semibold border hover:border-none border-blue-100 text-white mx-auto rounded-md flex items-center justify-center relative">
-                Open Your Account Today
-              </a>
-
-              <a href="/"  className="w-60 h-14 bg-white-100 hover:bg-yellow-100 text-base font-semibold border hover:border-none border-gray-100 text-blue-100 hover:text-white mx-auto rounded-md flex items-center justify-center relative">
-                Learn More
-              </a>
-            </div>
+            <OpenAccountButtons />
           </motion.div>
         </AnimatePresence>
       )}

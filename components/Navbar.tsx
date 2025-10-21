@@ -38,20 +38,12 @@ import { ChevronDownIcon } from "lucide-react"
 const Navbar = () => {
   const pathname = usePathname();
   const router = useRouter();
-  const [isScrolled, setIsScrolled] = useState(false)
   // track open state per dropdown (keyed by item.title)
   const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({})
 
-  // Handle scroll event
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 0)
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-20 w-full h-20 flex items-center justify-between px-6 md:px-12 gap-2.5 shadow-md ${isScrolled ? "bg-transparent backdrop-blur" : "bg-transparent"}`}
+      className={`fixed top-0 left-0 right-0 z-20 w-full h-20 flex items-center justify-between px-6 md:px-12 gap-2.5 shadow-md bg-white`}
     >
       {/* Logo */}
       <Link href="/" className="flex items-center gap-2">
