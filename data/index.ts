@@ -1,6 +1,7 @@
 import { PensionAdministrationBoxProps } from "@/components/PensionAdministrationBox";
 import { QuickActionsBoxProps } from "@/components/QuickActionsBox";
 import { TestimonialBoxProps } from "@/components/TestimonialBox";
+import { WhyFeaturesProps } from "@/components/WhyFeatures";
 
 export const NavbarLinks: { title: string; href?: string; children?: { icon: string; title: string; href: string }[] }[] = [
   { title: "Home", href: "/" },
@@ -186,4 +187,23 @@ export const testimonialsData:TestimonialBoxProps [] = [
     position:"Retired Police Officer",
     testimony: "What I enjoy most about NPF Pensions Limited is how well the relationship managers treat me. "
   },
+]
+
+export const pensionFeatures: WhyFeaturesProps [] =[
+  {
+    title: "Retirement Savings Account (RSA)",
+    description: "Our retirement savings account (rsa) is designed with your financial security in mind. We combine professional investment management with personalized service to ensure your retirement savings grow consistently over time.",
+    features: ["Mandatory 18% contribution (8% employee, 10% employer)", "Professional fund management", "Multiple investment options", "Regular statements and updates"],
+    benefits: ["Guaranteed retirement income", "Tax advantages on contributions", "Professional investment management", "Portable across employers"]
+  },
+  {
+    title: "Retirement Savings Account (RSA)",
+    description: "Our retirement savings account (rsa) is designed with your financial security in mind. We combine professional investment management with personalized service to ensure your retirement savings grow consistently over time.",
+    features: ["Mandatory 18% contribution (8% employee, 10% employer)", "Professional fund management", "Multiple investment options", "Regular statements and updates"],
+    benefits: ["Guaranteed retirement income", "Tax advantages on contributions", "Professional investment management", "Portable across employers"]
+  }
+]
+
+export const howItWorksData: string [] = [
+  "Complete our simple application form", "Provide required documentation", "Make your initial contribution", "Start growing your retirement savings" 
 ]
