@@ -9,10 +9,11 @@ export async function HeroSlider() {
   const sliderData = await client.fetch(heroSliderQuery);
 
   // build safe arrays for images and titles
-  const images: string[] =
-    (sliderData ?? []).map((item: Slider) =>
-      item?.image ? (urlFor ? urlFor(item.image).url() : item.image.asset?.url) ?? "" : ""
-    ).filter(Boolean);
+  const images: string[] = (sliderData ?? [])
+  .map((item: Slider) =>
+    item?.image ? urlFor(item.image).url() : ""
+  )
+  .filter(Boolean);
 
   const titles: string[] = (sliderData ?? []).map((item: Slider) => item?.title ?? "");
   const descriptions: string[] = (sliderData ?? []).map((item: Slider) => item?.description ?? "");
