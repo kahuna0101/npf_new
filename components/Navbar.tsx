@@ -28,7 +28,7 @@ import {
 
 import { NavbarLinks, socialLinks } from "@/data"
 import { usePathname, useRouter } from "next/navigation"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden"
 import Image from "next/image"
 import { Button } from "./ui/button"

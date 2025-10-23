@@ -25,7 +25,7 @@ const Footer = () => {
               >
                 <div
                   aria-hidden
-                  className="w-6 h-6 transition-colors duration-200 bg-grey-100 group-hover:bg-[var(--icon-hover-color)]"
+                  className="w-6 h-6 -colors duration-200 bg-grey-100 group-hover:bg-[var(--icon-hover-color)]"
                   style={
                     {
                       WebkitMaskImage: `url(${item.icon})`,

@@ -1,7 +1,8 @@
+import { BenefitsPageProps } from "@/components/BenefitsTabs";
 import { PensionAdministrationBoxProps } from "@/components/PensionAdministrationBox";
 import { QuickActionsBoxProps } from "@/components/QuickActionsBox";
 import { TestimonialBoxProps } from "@/components/TestimonialBox";
-import { WhyFeaturesProps } from "@/components/WhyFeatures";
+import { PensionPageProps } from "@/components/PensionFeatures";
 
 export const NavbarLinks: { title: string; href?: string; children?: { icon: string; title: string; href: string }[] }[] = [
   { title: "Home", href: "/" },
@@ -189,7 +190,7 @@ export const testimonialsData:TestimonialBoxProps [] = [
   },
 ]
 
-export const pensionFeatures: WhyFeaturesProps [] =[
+export const pensionPageData: PensionPageProps [] =[
   {
     title: "Retirement Savings Account (RSA)",
     description: "Our retirement savings account (rsa) is designed with your financial security in mind. We combine professional investment management with personalized service to ensure your retirement savings grow consistently over time.",
@@ -197,13 +198,72 @@ export const pensionFeatures: WhyFeaturesProps [] =[
     benefits: ["Guaranteed retirement income", "Tax advantages on contributions", "Professional investment management", "Portable across employers"]
   },
   {
-    title: "Retirement Savings Account (RSA)",
-    description: "Our retirement savings account (rsa) is designed with your financial security in mind. We combine professional investment management with personalized service to ensure your retirement savings grow consistently over time.",
-    features: ["Mandatory 18% contribution (8% employee, 10% employer)", "Professional fund management", "Multiple investment options", "Regular statements and updates"],
-    benefits: ["Guaranteed retirement income", "Tax advantages on contributions", "Professional investment management", "Portable across employers"]
+    title: "Voluntary Contributions (VC)",
+    description: "Our voluntary contributions (vc) is designed with your financial security in mind. We combine professional investment management with personalized service to ensure your retirement savings grow consistently over time.",
+    features: ["Flexible contribution amounts", "Multiple payment options", "Higher retirement benefits", "Tax-efficient savings"],
+    benefits: ["Increased retirement income", "Tax deductions on contributions", "Flexible withdrawal options", "Compound growth potential"]
+  },
+  {
+    title: "RSA Mortgage Equity Contribution",
+    description: "Our rsa mortgage equity contribution is designed with your financial security in mind. We combine professional investment management with personalized service to ensure your retirement savings grow consistently over time.",
+    features: ["Up to 25% of RSA balance", "Competitive interest rates", "Flexible repayment terms", "Maintained retirement savings"],
+    benefits: ["Homeownership opportunity", "Lower mortgage rates", "Continued retirement savings", "Flexible repayment options"]
   }
 ]
 
 export const howItWorksData: string [] = [
   "Complete our simple application form", "Provide required documentation", "Make your initial contribution", "Start growing your retirement savings" 
+]
+
+export const benefitsPageData: BenefitsPageProps [] =[
+  {
+    value: "retirement-withdrawal",
+    tabsTitle: "Retirement & Withdrawal",
+    title: "Retirement Benefits",
+    description: "Access your full retirement benefits when you reach retirement age or meet the qualifying conditions.",
+    features: ["fully consolidated RSA Balance", "Monthly pension option", "Lump sum withdrawal"],
+    requirements: ["Reached age 50 with 5 years of service", "Reached retirement age as specified by employer", "Voluntary retirement with employer consent" ],
+    process: ["Submit retirement application form", "Provide required documentation", "Choose payment option (lump sum or annuity)", "Receive your benefits within 30 days"],
+    bgImg: "/images/vc-bg.jpg"
+  },
+  {
+    value: "programmed-withdrawal",
+    tabsTitle: "Programmed Withdrawal",
+    title: "Programmed Withdrawal",
+    description: "Receive regular monthly payments from your RSA while keeping your funds invested for continued growth.",
+    features: ["Regular monthly income", "Continued investment growth", "Flexible payment schedule" ],
+    requirements: ["Reached age 50 with 5 years of service", "Retirees who choose structured payments", "RSA balance can support minimum monthly payments"],
+    process: ["Calculate sustainable withdrawal rate", "Submit application with required documents", "Set up monthly payment schedule", "Receive regular payments for life expectancy period"],
+    bgImg: "/images/benefits-withdrawal-bg.jpg"
+  },
+  {
+    value: "temporary-access",
+    tabsTitle: "25% Temporary Access",
+    title: "25% Temporary Access",
+    description: "Access up to 25% of your RSA balance for urgent financial needs while keeping the remaining 75% for retirement.",
+    features: ["Emergency access", "Up to 25% of balance", "Quick processing"],
+    requirements: ["Unemployed for 4 months or more", "No monthly salary or pension", "Submitted required documentation"],
+    process: ["Provide proof of unemployment", "Submit temporary access application", "Complete verification process", "Receive 25% of your RSA balance"],
+    bgImg: "/images/rsa-bg.jpg"
+  },
+  {
+    value: "bloc-payment",
+    tabsTitle: "En Bloc Payment",
+    title: "En Bloc Payment",
+    description: "Receive your entire RSA balance as a lump sum payment if your total balance is below the prescribed threshold.",
+    features: ["Full balance withdrawal", "One-time payment", "Complete account closure"],
+    requirements: ["Balance below specified threshold", "Reached retirement age", "Unable to secure annuity with the balance"],
+    process: ["Verify RSA balance threshold", "Submit en bloc payment application", "Complete required documentation", "Receive full payment within 30 days"],
+    bgImg: "/images/vc-bg.jpg"
+  },
+  {
+    value: "death-benefits",
+    tabsTitle: "Death Benefits",
+    title: "Death Benefits",
+    description: "Ensure your loved ones are taken care of with comprehensive death benefits from your RSA.",
+    features: ["Fully consolidated RSA Balance", "Survivor benefits", "Quick claim process"],
+    requirements: ["Designated beneficiaries", "Proper documentation of death", "Valid nomination or will"],
+    process: ["Notify NPF Pensions Limited of death", "Submit death certificate and required documents", "Verify beneficiary information", "Process payment to beneficiaries"],
+    bgImg: "/images/benefits-withdrawal-bg.jpg"
+  }
 ]

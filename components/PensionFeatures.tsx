@@ -1,11 +1,11 @@
-export type WhyFeaturesProps = {
+export type PensionPageProps = {
     title?: string,
     description?: string,
     features?: string[],
     benefits?: string[],
 }
 
-const WhyFeatures = ({ title, description, features }: WhyFeaturesProps) => {
+const PensionFeatures = ({ title, description, features }: PensionPageProps) => {
     return (
         <div className="md:w-[620px] flex flex-col gap-7.5 justify-start">
             <h1 className="text-[40px] leading-13 font-bold text-black-100">Why Choose Our {title}?</h1>
@@ -22,4 +22,4 @@ const WhyFeatures = ({ title, description, features }: WhyFeaturesProps) => {
     )
 }
 
-export default WhyFeatures
+export default PensionFeatures

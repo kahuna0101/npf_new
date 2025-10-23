@@ -1,11 +1,10 @@
 import BenefitsBox from '@/components/BenefitsBox'
-import WhyFeatures from '@/components/WhyFeatures'
-import { howItWorksData, pensionFeatures } from '@/data'
+import PensionFeaturesBox from '@/components/PensionFeatures'
+import { howItWorksData, pensionPageData } from '@/data'
 import Image from 'next/image'
-import React from 'react'
 
 const RetirementSavingsAccount = () => {
-  const { title, description, features, benefits } = pensionFeatures[0];
+  const { title, description, features, benefits } = pensionPageData[0];
   
   return (
     <section className="w-full">
@@ -15,14 +14,14 @@ const RetirementSavingsAccount = () => {
         <div aria-hidden="true" className="ellipse-bottom" />
 
         <div className="absolute z-10 flex flex-col items-center gap-7.5 text-center p-8">
-          <h1 className="text-3xl md:text-5xl font-bold text-white">Retirement Savings Account (RSA)</h1>
+          <h1 className="text-3xl md:text-5xl font-bold text-white">{title}</h1>
           <p className="text-base md:text-lg font-medium text-white text-center">Build your retirement savings with our comprehensive RSA plan designed for <br /> long-term financial security.</p>
         </div>
       </div>
 
-      <div className=" bg-white-100 p-12 gap-12.5 sm:p-25">
+      <div className="bg-white-100 p-12 gap-12.5 sm:p-25">
         <div className='flex flex-col md:flex-row items-start justify-center gap-7.5'>
-          <WhyFeatures title={title} description={description} features={features} />
+          <PensionFeaturesBox title={title} description={description} features={features} />
           <div className="flex flex-col gap-7.5">
             <BenefitsBox benefits={benefits} />
             <div className="md:w-80  lg:w-96 xl:w-[590px] flex flex-col gap-7.5 p-7.5 rounded-[10px] border border-gray-100">
