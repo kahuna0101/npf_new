@@ -12,3 +12,14 @@ export const heroSliderQuery = defineQuery(`*[_type == "slider"] | order(index a
     },
   },
 }`);
+
+export const formsQuery = defineQuery(`*[_type == "form"] | order(_createdAt desc) {
+  _id,
+  title,
+  description,
+  "file": {
+    "url": file.asset->url,
+    "type": file.asset->mimeType,
+    "size": round(file.asset->size / (1024 * 1024), 2)
+  }
+}`)
