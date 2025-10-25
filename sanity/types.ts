@@ -13,6 +13,25 @@
  */
 
 // Source: schema.json
+export type Job = {
+  _id: string;
+  _type: "job";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  description?: string;
+  tag?: string;
+  state?: string;
+  time?: "Full-time" | "Part-time" | "Contract";
+  experience?: string;
+  requirements?: Array<string>;
+  applyMethod?: {
+    applyUrl?: string;
+    applyEmail?: string;
+  };
+};
+
 export type Form = {
   _id: string;
   _type: "form";
@@ -198,5 +217,5 @@ export type SanityAssetSourceData = {
   url?: string;
 };
 
-export type AllSanitySchemaTypes = Form | Slider | Director | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
+export type AllSanitySchemaTypes = Job | Form | Slider | Director | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
 export declare const internalGroqTypeReferenceTo: unique symbol;

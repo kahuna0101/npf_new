@@ -23,3 +23,19 @@ export const formsQuery = defineQuery(`*[_type == "form"] | order(_createdAt des
     "size": round(file.asset->size / (1024 * 1024), 2)
   }
 }`)
+
+export const jobOpeningsQuery = defineQuery(`*[_type == "job"] | order(_createdAt desc) {
+    _id,
+    title,
+    description,
+    tag,
+    state,
+    time,
+    experience,
+    requirements,
+    applyMethod {
+      applyUrl,
+      applyEmail
+    }
+  }
+`);

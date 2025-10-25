@@ -8,7 +8,7 @@ const VoluntaryContributions = () => {
 
   return (
     <section className="w-full">
-      <div className="relative h-64 md:h-[443px] flex flex-col items-center justify-center p-8 gap-12.5 sm:p-25 bg-[url('/images/vc-bg.jpg')] bg-cover bg-center overflow-hidden">
+      <div className="relative h-[50vh] md:h-[443px] flex flex-col items-center justify-center p-8 gap-12.5 sm:p-25 bg-[url('/images/vc-bg.jpg')] bg-cover bg-center overflow-hidden">
         <div className="absolute inset-0 bg-black/60 z-10" aria-hidden="true" />
         <div aria-hidden="true" className="ellipse-top" />
         <div aria-hidden="true" className="ellipse-bottom" />
@@ -24,7 +24,7 @@ const VoluntaryContributions = () => {
           <PensionFeatures title={title} description={description} features={features} />
           <div className="flex flex-col gap-7.5">
             <BenefitsBox benefits={benefits} />
-            <div className="md:w-80  lg:w-96 xl:w-[590px] flex flex-col gap-7.5 p-7.5 rounded-[10px] border border-gray-100">
+            <div className="md:w-80 lg:w-96 xl:w-[590px] flex flex-col gap-7.5 p-7.5 rounded-[10px] border border-gray-100">
               <div className="flex gap-2.5">
                 <Image src="/icons/guard.svg" width={24} height={24} alt='guard' />
                 <h3 className="text-xl text-black-100 font-medium">Security Guarantee</h3>

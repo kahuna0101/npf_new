@@ -8,7 +8,7 @@ const MortgageEquityContribution = () => {
 
   return (
     <section className="w-full">
-      <div className="relative h-64 md:h-[443px] flex flex-col items-center justify-center p-8 gap-12.5 sm:p-25 bg-[url('/images/mortgage-bg.jpg')] bg-cover bg-center overflow-hidden">
+      <div className="relative h-[50vh] md:h-[443px] flex flex-col items-center justify-center p-8 gap-12.5 sm:p-25 bg-[url('/images/mortgage-bg.jpg')] bg-cover bg-center overflow-hidden">
         <div className="absolute inset-0 bg-black/60 z-10" aria-hidden="true" />
         <div aria-hidden="true" className="ellipse-top" />
         <div aria-hidden="true" className="ellipse-bottom" />

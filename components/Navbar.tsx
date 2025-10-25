@@ -243,9 +243,9 @@ function ListItem({
     <li {...props}>
       <NavigationMenuLink asChild>
         <SheetClose asChild>
-          <Link href={href} className="group flex flex-row justify-start items-center gap-2.5 rounded-[10px] bg-white border-2 border-green-100 hover:bg-yellow-100 hover:border-none transition-all duration-200">
-            <Image src={icon} alt={title as string} width={30} height={30} className="transition-all duration-200 group-hover:brightness-0 group-hover:invert" />
-            <p className="text-sm leading-none font-medium text-black-100 transition-all duration-200 group-hover:text-white">{title}</p>
+          <Link href={href} className="flex flex-row justify-start items-center gap-2.5 rounded-[10px] bg-white border-2 border-green-100">
+            <Image src={icon} alt={title as string} width={30} height={30} />
+            <p className="text-sm leading-none font-medium text-black-100">{title}</p>
           </Link>
         </SheetClose>
       </NavigationMenuLink>
