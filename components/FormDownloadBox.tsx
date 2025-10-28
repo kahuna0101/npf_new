@@ -12,7 +12,7 @@ const FormDownloadBox = ({ title, description, fileType, fileSize, fileUrl }: Fo
     const shortType = fileType?.split("/")[1] ?? "";
 
     return (
-        <div className="md:w-[393px] flex p-5 gap-5 border border-gray-100 bg-white rounded-[10px]">
+        <div className="md:w-[393px] flex p-5 gap-5 border border-gray-100 bg-white rounded-[10px] shadow">
             <div className="flex justify-center items-center w-12.5 h-12.5 p-2.5 rounded-[10px] bg-light-blue-100">
                 <Image src="/icons/forms-blue.svg" alt="forms" width={24} height={24} />
             </div>

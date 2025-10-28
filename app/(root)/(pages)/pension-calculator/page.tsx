@@ -1,4 +1,6 @@
+import LoadingBox from "@/components/LoadingBox"
 import Script from "next/script"
+import { Suspense } from "react"
 
 const PensionCalculator = () => {
   return (
@@ -15,8 +17,10 @@ const PensionCalculator = () => {
       </div>
 
       <div className=" bg-white-100 p-12 gap-12.5 sm:p-25">
+        <Suspense fallback={<LoadingBox />}>
         <Script src="https://elfsightcdn.com/platform.js" strategy="lazyOnload" />
         <div className="elfsight-app-2042e363-87c5-4cde-af8e-08a1f8407db4" data-elfsight-app-lazy></div>
+        </Suspense>
       </div>
     </section>
   )

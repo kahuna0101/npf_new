@@ -8,6 +8,7 @@
   --color-yellow-100: #E8B30C;
   --color-white-100: #F9F9F9;
   --color-black-100: #2F2F2F;
+  --color-black-200: #333333;
   --color-green-100: #148614;
   --color-green-200: #148614;
   --color-grey-100: #666666;
@@ -145,6 +146,14 @@
 
   .ellipse-bottom {
     @apply absolute bg-ellipse rounded-full pointer-events-none z-0 w-[140px] h-[140px] left-[-50px] bottom-[-50px] sm:w-[170px] sm:h-[170px] sm:left-[-60px] sm:bottom-[-60px] md:w-[200px] md:h-[200px] md:left-[-70px] md:bottom-[-70px] lg:w-[258px] lg:h-[258px] lg:left-[-100px] lg:bottom-[-80px] transform
+  }
+
+  .form-input {
+    @apply h-12 placeholder:text-grey-100 placeholder:text-xs px-4 py-3 rounded-[8px] border border-light-grey-100 focus-visible:ring-light-blue-100
+  }
+
+  .form-label {
+    @apply text-base font-normal text-black-200
   }
 
   /* Mobile nav */
