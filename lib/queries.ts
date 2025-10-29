@@ -39,3 +39,36 @@ export const jobOpeningsQuery = defineQuery(`*[_type == "job"] | order(_createdA
     }
   }
 `);
+
+export const directorsQuery = defineQuery(`*[_type == "director"] | order(index asc) {
+  _id, 
+  name, 
+  role,
+  bio,
+  image {
+    asset -> {
+      _id,
+      url
+    },
+  },
+}`)
+
+export const managementsTeamQuery = defineQuery(`*[_type == "management"] | order(index asc) {
+  _id,
+  name, 
+  role,
+  bio,
+  image {
+    asset -> {
+      _id,
+      url
+    },
+  },
+}`)
+
+export const testimonialsQuery = defineQuery(`*[_type == "testimonial"] | order(_createdAt desc) {
+  _id,
+  name,
+  occupation,
+  testimony
+}`);

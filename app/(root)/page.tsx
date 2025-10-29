@@ -4,12 +4,15 @@ import OpenAccountButtons from "@/components/OpenAccountButtons";
 import PensionAdministrationBox from "@/components/PensionAdministrationBox";
 import QuickActionsBox from "@/components/QuickActionsBox";
 import TestimonialBox from "@/components/TestimonialBox";
-import { pensionAdministrationData, priceData, quickActionsData, testimonialsData, whyChooseData } from "@/data";
+import { pensionAdministrationData, priceData, quickActionsData, whyChooseData } from "@/data";
+import { testimonialsQuery } from "@/lib/queries";
+import { client } from "@/sanity/lib/client";
+import { Testimonial } from "@/sanity/types";
 import Image from "next/image";
 import Link from "next/link";
 
 export default async function Home() {
-
+ const testimonials = await client.fetch(testimonialsQuery);
 
   return (
     <>
@@ -94,8 +97,8 @@ export default async function Home() {
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-8">
-          {testimonialsData.map((item, index) => (
-            <TestimonialBox key={index} name={item.name} position={item.position} testimony={item.testimony}  />
+          {testimonials.map((item:Testimonial ) => (
+            <TestimonialBox key={item._id} name={item.name!} occupation={item.occupation!} testimony={item.testimony!}  />
           ))}
         </div>
 

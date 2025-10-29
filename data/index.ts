@@ -185,19 +185,6 @@ export const whyChooseData: { title: string, description: string, }[] = [
   },
 ]
 
-export const testimonialsData: TestimonialBoxProps[] = [
-  {
-    name: 'Victor ALABI',
-    position: "Retired Police Officer",
-    testimony: "What I enjoy most about NPF Pensions Limited is how well the relationship managers treat me. I look forward to more returns on investments, continued excellent customer treatment, and also to building the company further."
-  },
-  {
-    name: 'Victor Alabi',
-    position: "Retired Police Officer",
-    testimony: "What I enjoy most about NPF Pensions Limited is how well the relationship managers treat me. "
-  },
-]
-
 export const pensionPageData: PensionPageProps[] = [
   {
     title: "Retirement Savings Account (RSA)",
@@ -433,86 +420,6 @@ export const valuesData: valueProps[] = [
     description: "We operate with the highest ethical standards and complete transparency in all our dealings.",
     icon: "/icons/users.svg"
   },
-]
-
-export const directors: TeamProps[] = [
-  {
-    name: "KOLADE O. MORAKINYO, PH.D., FCA, FCTI, FCIB, ACIPFA, MNIM",
-    title: "MANAGING DIRECTOR/CEO",
-    description: "Kolade Morakinyo is a seasoned professional with over two decades of distinguished experience across the financial, communication, audit, taxation, consultancy, and oil and gas sectors.Kolade Morakinyo is a seasoned professional with over two decades of distinguished experience across the financial, communication, audit, taxation, consultancy, and oil and gas sectors.",
-    image: "/images/kolade-morakinyo.jpg"
-  },
-  {
-    name: "PRISCILLIA EGEDE-NJOWUSI EGEDE-NJOWUSI",
-    title: "EXECUTIVE DIRECTOR, CORPORATE SERVICES",
-    description: "Priscillia O. Egede-Njowusi is a graduate of Delta State University Abraka where she obtained her Bachelor and Master's Degrees in English (Education) and Industrial Relations.Priscillia O. Egede-Njowusi is a graduate of Delta State University Abraka where she obtained her Bachelor and Master's Degrees in English (Education) and Industrial Relations. ",
-    image: "/images/priscilia-njowusi.jpg"
-  },
-  {
-    name: "KOLADE O. MORAKINYO, PH.D., FCA, FCTI, FCIB, ACIPFA, MNIM",
-    title: "MANAGING DIRECTOR/CEO",
-    description: "Kolade Morakinyo is a seasoned professional with over two decades of distinguished experience across the financial, communication, audit, taxation, consultancy, and oil and gas sectors.",
-    image: "/images/kolade-morakinyo.jpg"
-  },
-  {
-    name: "PRISCILLIA EGEDE-NJOWUSI",
-    title: "EXECUTIVE DIRECTOR, CORPORATE SERVICES",
-    description: "Priscillia O. Egede-Njowusi is a graduate of Delta State University Abraka where she obtained her Bachelor and Master's Degrees in English (Education) and Industrial Relations.",
-    image: "/images/priscilia-njowusi.jpg"
-  },
-  {
-    name: "KOLADE O. MORAKINYO, PH.D., FCA, FCTI, FCIB, ACIPFA, MNIM",
-    title: "MANAGING DIRECTOR/CEO",
-    description: "Kolade Morakinyo is a seasoned professional with over two decades of distinguished experience across the financial, communication, audit, taxation, consultancy, and oil and gas sectors.",
-    image: "/images/kolade-morakinyo.jpg"
-  },
-  {
-    name: "PRISCILLIA EGEDE-NJOWUSI",
-    title: "EXECUTIVE DIRECTOR, CORPORATE SERVICES",
-    description: "Priscillia O. Egede-Njowusi is a graduate of Delta State University Abraka where she obtained her Bachelor and Master's Degrees in English (Education) and Industrial Relations.",
-    image: "/images/priscilia-njowusi.jpg"
-  },
-
-]
-
-export const managements: TeamProps[] = [
-  {
-    name: "KOLADE O. MORAKINYO, PH.D., FCA, FCTI, FCIB, ACIPFA, MNIM",
-    title: "MANAGING DIRECTOR/CEO",
-    description: "Kolade Morakinyo is a seasoned professional with over two decades of distinguished experience across the financial, communication, audit, taxation, consultancy, and oil and gas sectors.Kolade Morakinyo is a seasoned professional with over two decades of distinguished experience across the financial, communication, audit, taxation, consultancy, and oil and gas sectors.",
-    image: "/images/kolade-morakinyo.jpg"
-  },
-  {
-    name: "PRISCILLIA EGEDE-NJOWUSI EGEDE-NJOWUSI",
-    title: "EXECUTIVE DIRECTOR, CORPORATE SERVICES",
-    description: "Priscillia O. Egede-Njowusi is a graduate of Delta State University Abraka where she obtained her Bachelor and Master's Degrees in English (Education) and Industrial Relations.Priscillia O. Egede-Njowusi is a graduate of Delta State University Abraka where she obtained her Bachelor and Master's Degrees in English (Education) and Industrial Relations. ",
-    image: "/images/priscilia-njowusi.jpg"
-  },
-  {
-    name: "KOLADE O. MORAKINYO, PH.D., FCA, FCTI, FCIB, ACIPFA, MNIM",
-    title: "MANAGING DIRECTOR/CEO",
-    description: "Kolade Morakinyo is a seasoned professional with over two decades of distinguished experience across the financial, communication, audit, taxation, consultancy, and oil and gas sectors.",
-    image: "/images/kolade-morakinyo.jpg"
-  },
-  {
-    name: "PRISCILLIA EGEDE-NJOWUSI",
-    title: "EXECUTIVE DIRECTOR, CORPORATE SERVICES",
-    description: "Priscillia O. Egede-Njowusi is a graduate of Delta State University Abraka where she obtained her Bachelor and Master's Degrees in English (Education) and Industrial Relations.",
-    image: "/images/priscilia-njowusi.jpg"
-  },
-  {
-    name: "KOLADE O. MORAKINYO, PH.D., FCA, FCTI, FCIB, ACIPFA, MNIM",
-    title: "MANAGING DIRECTOR/CEO",
-    description: "Kolade Morakinyo is a seasoned professional with over two decades of distinguished experience across the financial, communication, audit, taxation, consultancy, and oil and gas sectors.",
-    image: "/images/kolade-morakinyo.jpg"
-  },
-  {
-    name: "PRISCILLIA EGEDE-NJOWUSI",
-    title: "EXECUTIVE DIRECTOR, CORPORATE SERVICES",
-    description: "Priscillia O. Egede-Njowusi is a graduate of Delta State University Abraka where she obtained her Bachelor and Master's Degrees in English (Education) and Industrial Relations.",
-    image: "/images/priscilia-njowusi.jpg"
-  },
-
 ]
 
 export const contactData: ContactDataProps[] = [

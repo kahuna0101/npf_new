@@ -2,11 +2,11 @@ import Image from "next/image"
 
 export type TestimonialBoxProps = {
     name: string,
-    position: string,
+    occupation: string,
     testimony: string,
 }
 
-const TestimonialBox = ({ name, position, testimony }: TestimonialBoxProps) => {
+const TestimonialBox = ({ name, occupation, testimony }:TestimonialBoxProps ) => {
     const [firstName, LastName] = name.split(" ");
 
     return (
@@ -20,7 +20,7 @@ const TestimonialBox = ({ name, position, testimony }: TestimonialBoxProps) => {
 
             <div className="flex flex-col justify-center items-center">
                <h4 className="text-lg font-medium text-black-100">{firstName} <span className="uppercase">{LastName}</span></h4>
-               <p className="text-sm font-normal text-black-100">{position}</p>
+               <p className="text-sm font-normal text-black-100">{occupation}</p>
             </div>
         </div>
     )

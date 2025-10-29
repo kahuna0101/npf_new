@@ -7,27 +7,33 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
+import { Suspense } from "react"
+import { Skeleton } from "./ui/skeleton"
 
 export type TeamProps = {
     name: string,
-    title: string,
-    description: string,
+    role: string,
+    bio: string,
     image: string,
 }
 
-const TeamBox = ({ name, title, description, image }: TeamProps) => {
+const TeamBox = ({ name, role, bio, image }:TeamProps  ) => {
     return (
         <div className="w-[393.33px] flex flex-col items-center p-7.5 gap-3.5 border border-gray-100 bg-white rounded-[20px] shadow-lg">
-            <div className="w-30 h-30 rounded-[70px] overflow-hidden">
-                <Image src={image} width={120} height={120} alt={name} />
-            </div>
+            
+                <Suspense fallback={<Skeleton className="w-30 h-30 rounded-full" />}>
+                <div className="w-30 h-30 rounded-[70px] overflow-hidden">
+                  <Image src={image} width={120} height={120} alt={name} />  
+                  </div>
+                </Suspense>
+            
 
             <div className="h-12 flex justify-center items-center">
                 <h4 className="text-base text-black-100 font-bold uppercase text-center">{name}</h4>
             </div>
 
-            <p className="text-sm text-blue-100 font-bold uppercase text-center">{title}</p>
-             <p className="text-sm text-black-100 font-normal line-clamp-3 text-center">{description}</p>
+            <p className="text-sm text-blue-100 font-bold uppercase text-center">{role}</p>
+             <p className="text-sm text-black-100 font-normal line-clamp-3 text-center">{bio}</p>
 
             <Dialog>
                 <DialogTrigger className="underline">Read More</DialogTrigger>
@@ -38,10 +44,10 @@ const TeamBox = ({ name, title, description, image }: TeamProps) => {
                         </DialogTitle>
 
                         <DialogDescription className="text-sm text-blue-100 font-bold uppercase">
-                            {title}
+                            {role}
                         </DialogDescription>
                     </DialogHeader>
-                     <p className="text-sm text-black-100 font-normal">{description}</p>
+                     <p className="text-sm text-black-100 font-normal">{bio}</p>
                 </DialogContent>
             </Dialog>
         </div>

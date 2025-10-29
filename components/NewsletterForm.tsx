@@ -8,32 +8,39 @@ import { Button } from "@/components/ui/button"
 import {
     Form,
     FormControl,
-    FormDescription,
     FormField,
     FormItem,
-    FormLabel,
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { SendNewsletterMail } from "@/lib/mailSender"
+import { newsletterSchema } from "@/lib/form-validation"
+import { toast } from "sonner"
+import { Loader2 } from "lucide-react"
 
-const formSchema = z.object({
-    email: z.email(),
-})
+
 
 const NewsletterForm = () => {
-    const form = useForm<z.infer<typeof formSchema>>({
-        resolver: zodResolver(formSchema),
+    const form = useForm<z.infer<typeof newsletterSchema>>({
+        resolver: zodResolver(newsletterSchema),
         defaultValues: {
             email: "",
         },
     })
 
-    // 2. Define a submit handler.
-    function onSubmit(values: z.infer<typeof formSchema>) {
-        // Do something with the form values.
-        // ✅ This will be type-safe and validated.
-        console.log(values)
+    async function onSubmit (values: z.infer<typeof newsletterSchema>) {
+        const response = await SendNewsletterMail(values);
+
+        if (response.success) {
+            toast.success("You've successfully subscribed to our Newsletter")
+            form.reset()
+        } else {
+            toast.error("Error submitting E-mail")
+        }
     }
+
+    const isSubmitting = form.formState.isSubmitting;
+
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-7.5">
@@ -49,7 +56,8 @@ const NewsletterForm = () => {
                         </FormItem>
                     )}
                 />
-                <Button type="submit" className="max-md:w-full w-[200px] h-15 bg-white-100 hover:bg-yellow-100 border border-gray-100 hover:border-none text-base font-semibold text-black-100 hover:text-white rounded-[8px] p-4">Subscribe</Button>
+                
+                <Button type="submit" disabled={isSubmitting} className="max-md:w-full w-[200px] h-15 bg-white-100 hover:bg-yellow-100 border border-gray-100 hover:border-none text-base font-semibold text-black-100 hover:text-white rounded-[8px] p-4">{isSubmitting ? (<><Loader2 className="w-5 h-5 animate-spin" />Subscribing...</>) : ("Subscribe")}</Button>
             </form>
         </Form>
     )

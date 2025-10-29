@@ -9,4 +9,6 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem('slider').title('Sliders'),
       S.documentTypeListItem('form').title('Forms'),
       S.documentTypeListItem('job').title('Job Opening'),
+      S.documentTypeListItem('management').title('Managements'),
+      S.documentTypeListItem('testimonial').title('Testimonials'),
     ])

@@ -1,7 +1,12 @@
 import TeamBox from "@/components/TeamBox"
-import { directors } from "@/data"
+import { directorsQuery } from "@/lib/queries";
+import { client } from "@/sanity/lib/client"
+import { urlFor } from "@/sanity/lib/image";
+import { Director } from "@/sanity/types";
 
-const Directors = () => {
+const Directors = async () => {
+  const directors = await client.fetch(directorsQuery);
+
   return (
     <section className="w-full">
       <div className="relative h-[50vh] md:h-[443px] flex flex-col items-center justify-center p-8 gap-12.5 sm:p-25 bg-[url('/images/hand-shake-bg.jpg')] bg-cover bg-center overflow-hidden">
@@ -21,15 +26,16 @@ const Directors = () => {
           <p className="text-base font-normal text-grey-100 text-center">Meet the experienced professionals guiding NPF Pensions Limited <br /> toward continued excellence.</p>
         </div>
         <div className="flex flex-wrap items-start justify-center gap-7.5">
-          {directors.map((data, index) => {
-            const { name, title, description, image } = data;
+          {directors.map((data:Director) => {
+            const { _id, name, role, bio } = data;
+            const image  = data?.image ? urlFor(data.image).url(): "";
             return (
               <TeamBox 
-                key={index}
-                name = {name}
-                title = {title}
-                description = {description}
-                image = {image}
+                key={_id}
+                name={name!}
+                role={role!}
+                bio={bio!}
+                image={image}
               />
             )
           })}

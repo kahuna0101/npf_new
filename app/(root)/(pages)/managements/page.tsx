@@ -1,7 +1,12 @@
 import TeamBox from '@/components/TeamBox';
-import { managements } from '@/data';
+import { managementsTeamQuery } from '@/lib/queries';
+import { client } from '@/sanity/lib/client';
+import { urlFor } from '@/sanity/lib/image';
+import { Management } from '@/sanity/types';
 
-const Managements = () => {
+const Managements = async() => {
+   const managements = await client.fetch(managementsTeamQuery); 
+
   return (
     <section className="w-full">
       <div className="relative h-[50vh] md:h-[443px] flex flex-col items-center justify-center p-8 gap-12.5 sm:p-25 bg-[url('/images/mortgage-bg.jpg')] bg-cover bg-center overflow-hidden">
@@ -21,14 +26,16 @@ const Managements = () => {
           <p className="text-base font-normal text-grey-100 text-center">Meet the experienced professionals guiding NPF Pensions Limited <br /> toward continued excellence.</p>
         </div>
         <div className="flex flex-wrap items-start justify-center gap-7.5">
-          {managements.map((data, index) => {
-            const { name, title, description, image } = data;
+          {managements.map((data: Management) => {
+            const { _id, name, role, bio } = data;
+            const image  = data?.image ? urlFor(data.image).url(): "";
+
             return (
               <TeamBox
-                key={index}
-                name={name}
-                title={title}
-                description={description}
+                key={_id}
+                name={name!}
+                role={role!}
+                bio={bio!}
                 image={image}
               />
             )
