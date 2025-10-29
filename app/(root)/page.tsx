@@ -71,7 +71,7 @@ export default async function Home() {
         <div className="flex flex-wrap items-center justify-center gap-7.5">
           {whyChooseData.map((item, index) => (
             <div key={index} className="group w-2xs h-[235px] gap-5 flex flex-col justify-center items-center bg-light-green-100 hover:bg-green-100 rounded-[20px] shadow-md px-5 py-7.5">
-              <Image src="/icons/star.svg" alt="star" width={47.06} height={44.76} />
+              <Image src="/images/eagle.png" alt="eagle" width={47.06} height={44.76} />
               <h4 className="text-lg font-medium text-black-100 group-hover:text-white">{item.title}</h4>
               <p className="text-sm font-normal text-black-100 text-center group-hover:text-white">{item.description}</p>
             </div>

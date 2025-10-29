@@ -20,6 +20,7 @@ const Footer = () => {
               <Link
                 key={item.alt}
                 href={item.href}
+                target="_blank"
                 className="group flex items-center"
                 style={{ ["--icon-hover-color" as any]: item.color }}
               >

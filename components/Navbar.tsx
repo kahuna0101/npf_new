@@ -132,10 +132,10 @@ const Navbar = () => {
               </div>
             </SheetHeader>
 
-            <div className="flex flex-col p-3 w-full">
-              <nav className="flex flex-col gap-4 w-full">
-                <NavigationMenu orientation="vertical" viewport={false} className=" flex flex-col justify-start items-start w-full h-full">
-                  <NavigationMenuList className="flex flex-col gap-4 items-start w-full">
+            <div className="flex flex-col p-3">
+              <nav className="flex flex-col gap-4">
+                <NavigationMenu orientation="vertical" viewport={false} className="flex flex-col justify-start items-start w-full h-full">
+                  <NavigationMenuList className="flex flex-col gap-4 items-start w-[95vw]">
                     {NavbarLinks.map((item) => {
                       const isActive = item.href === pathname;
                       const hasActiveChild = !!item.children && item.children.some(child => child.href === pathname);
@@ -181,9 +181,11 @@ const Navbar = () => {
 
             <div className="flex flex-row justify-evenly gap-2 px-5">
               {socialLinks.map((item) => (
+                <SheetClose asChild>
                 <Link
                   key={item.alt}
                   href={item.href}
+                  target="_blank"
                   className="group flex items-center"
                   style={{ ["--icon-hover-color" as any]: item.color }}
                 >
@@ -203,7 +205,8 @@ const Navbar = () => {
                       } as React.CSSProperties
                     }
                   />
-                </Link>
+                </Link>          
+                </SheetClose>
               ))}
             </div>
 
@@ -211,7 +214,7 @@ const Navbar = () => {
 
             <SheetFooter>
               <Button asChild className="group md:w-52 h-14 bg-white-100 text-blue-100 border border-blue-100 hover:bg-blue-100 hover:text-white-100 transition-colors duration-200">
-                <a href="/login" className="text-base font-semibold flex items-center gap-2">
+                <a href="https://online.npfpensions.com.ng/NPFSelfServices/Login.aspx#!" target="_blank" className="text-base font-semibold flex items-center gap-2">
                   <Image src="/icons/login.svg" width={20} height={20} alt="Log in" className="transition duration-200 group-hover:invert group-hover:brightness-0 group-hover:contrast-200" />
                   Log In
                 </a>
@@ -222,7 +225,7 @@ const Navbar = () => {
       </div>
 
       <Button asChild className="group md:w-30 md:h-12 xl:w-52 max-md:hidden bg-white-100 text-blue-100 border border-blue-100 hover:bg-blue-100 hover:text-white-100 transition-colors duration-200">
-        <a href="/login" className="text-base font-semibold flex items-center gap-2">
+        <a href="https://online.npfpensions.com.ng/NPFSelfServices/Login.aspx#!" target="_blank" className="text-base font-semibold flex items-center gap-2">
           <Image src="/icons/login.svg" width={20} height={20} alt="Log in" className="transition duration-200 group-hover:invert group-hover:brightness-0 group-hover:contrast-200" />
           Log In
         </a>

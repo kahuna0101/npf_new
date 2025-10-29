@@ -1,8 +1,20 @@
-import LoadingBox from "@/components/LoadingBox"
+"use client"
+
+import { useEffect, useState } from "react"
 import Script from "next/script"
-import { Suspense } from "react"
+import { Skeleton } from "@/components/ui/skeleton"
 
 const PensionCalculator = () => {
+   const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoaded(true)
+    }, 5000)
+
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
     <section className="w-full">
       <div className="relative h-[50vh] md:h-[443px] flex flex-col items-center justify-center p-8 gap-12.5 sm:p-25 bg-[url('/images/calculator-bg.jpg')] bg-cover bg-center overflow-hidden">
@@ -16,11 +28,19 @@ const PensionCalculator = () => {
         </div>
       </div>
 
-      <div className=" bg-white-100 p-12 gap-12.5 sm:p-25">
-        <Suspense fallback={<LoadingBox />}>
-        <Script src="https://elfsightcdn.com/platform.js" strategy="lazyOnload" />
-        <div className="elfsight-app-2042e363-87c5-4cde-af8e-08a1f8407db4" data-elfsight-app-lazy></div>
-        </Suspense>
+      <div className="bg-white-100 p-12 gap-12.5 sm:p-25 flex justify-center items-center">
+         {!isLoaded && <Skeleton className="h-80 w-310 rounded-[20px] bg-light-blue-100" />}
+        <Script
+          src="https://elfsightcdn.com/platform.js"
+          strategy="lazyOnload"
+          onLoad={() => setIsLoaded(true)}
+        />
+        <div
+          className={`elfsight-app-2042e363-87c5-4cde-af8e-08a1f8407db4 ${
+            isLoaded ? "block" : "hidden"
+          }`}
+          data-elfsight-app-lazy
+        ></div>
       </div>
     </section>
   )

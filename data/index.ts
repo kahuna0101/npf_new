@@ -1,12 +1,10 @@
 import { BenefitsPageProps } from "@/components/BenefitsTabs";
 import { PensionAdministrationBoxProps } from "@/components/PensionAdministrationBox";
 import { QuickActionsBoxProps } from "@/components/QuickActionsBox";
-import { TestimonialBoxProps } from "@/components/TestimonialBox";
 import { PensionPageProps } from "@/components/PensionFeatures";
 import { careerWhyProps } from "@/app/(root)/(pages)/careers/page";
 import { FaqsDataProps } from "@/components/FaqTabs";
 import { valueProps } from "@/app/(root)/(pages)/about-us/page";
-import { TeamProps } from "@/components/TeamBox";
 import { ContactDataProps } from "@/components/ContactTabs";
 
 export const NavbarLinks: { title: string; href?: string; children?: { icon: string; title: string; href: string }[] }[] = [
@@ -43,25 +41,25 @@ export const NavbarLinks: { title: string; href?: string; children?: { icon: str
 export const socialLinks: { icon: string; href: string; alt: string; color: string }[] = [
   {
     icon: "/icons/facebook.svg",
-    href: "www.facebook.com",
+    href: "https://www.facebook.com/groups/NPFPensions/?ref=share&mibextid=CTbP7E",
     alt: "facebook",
     color: "#1877F2"
   },
   {
     icon: "/icons/twitter.svg",
-    href: "www.twitter.com",
+    href: "https://x.com/NPFPensionsLtd?s=09",
     alt: "twitter",
     color: "#1DA1F2"
   },
   {
     icon: "/icons/instagram.svg",
-    href: "www.instagram.com",
+    href: "https://www.instagram.com/npfpensionslimited?igsh=NXFhczZ3bTJla2Nv",
     alt: "instagram",
     color: "#C13584"
   },
   {
     icon: "/icons/linkedin.svg",
-    href: "www.linkedin.com",
+    href: "https://www.linkedin.com/in/npf-pensions-limited-380321209",
     alt: "linkedin",
     color: "#0077B5"
   },
@@ -136,13 +134,13 @@ export const quickActionsData: QuickActionsBoxProps[] = [
   {
     title: "Client Portal",
     description: "Access your account",
-    href: "/faqs",
+    href: "https://online.npfpensions.com.ng/NPFSelfServices/Login.aspx#!",
     icon: "/icons/portal.svg"
   },
   {
     title: "PenCom Guidelines",
     description: "Access PenCom Guidelines",
-    href: "/faqs",
+    href: "/forms-downloads",
     icon: "/icons/downloads.svg"
   },
 ]
@@ -262,7 +260,6 @@ export const benefitsPageData: BenefitsPageProps[] = [
     bgImg: "/images/benefits-withdrawal-bg.jpg"
   }
 ]
-
 
 export const faqData: FaqsDataProps[] = [
   {

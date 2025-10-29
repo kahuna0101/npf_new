@@ -13,7 +13,7 @@ const BenefitsBox = ({ benefits }: PensionPageProps) => {
                 </ul>
             </div>
 
-            <Link href="/" className="w-full h-15 bg-blue-100 hover:bg-yellow-100 text-base font-semibold border hover:border-none border-blue-100 text-white mx-auto rounded-xl p-4 flex items-center justify-center">
+            <Link href="https://online.npfpensions.com.ng/NPFSelfServices/Login.aspx#!" target="_blank" className="w-full h-15 bg-blue-100 hover:bg-yellow-100 text-base font-semibold border hover:border-none border-blue-100 text-white mx-auto rounded-xl p-4 flex items-center justify-center">
                 Get Started Today
             </Link>
         </div>
