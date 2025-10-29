@@ -102,7 +102,7 @@ export default async function Home() {
           ))}
         </div>
 
-        <Link href="/testimonials" className="h-[60px] p-4 border border-blue-100 bg-white text-base font-semibold text-blue-100 rounded-[8px]">View more</Link>
+        {/* <Link href="/testimonials" className="h-[60px] p-4 border border-blue-100 bg-white text-base font-semibold text-blue-100 rounded-[8px]">View more</Link> */}
       </section>
 
       <section className="flex flex-col items-center justify-center bg-white p-8 gap-12.5 sm:p-25">
