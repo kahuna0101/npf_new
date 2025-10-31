@@ -28,8 +28,8 @@ const PensionCalculator = () => {
         </div>
       </div>
 
-      <div className="bg-white-100 p-12 gap-12.5 sm:p-25 flex justify-center items-center">
-         {!isLoaded && <Skeleton className="h-80 w-310 rounded-[20px] bg-light-blue-100" />}
+      <div className="bg-white-100 p-12 gap-12.5 sm:p-25 flex justify-center items-center overflow-hidden">
+         {!isLoaded && <Skeleton className="h-80 w-80 md:w-310 rounded-[20px] bg-light-blue-100" />}
         <Script
           src="https://elfsightcdn.com/platform.js"
           strategy="lazyOnload"

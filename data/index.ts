@@ -145,25 +145,6 @@ export const quickActionsData: QuickActionsBoxProps[] = [
   },
 ]
 
-export const priceData: { price: string, title: string }[] = [
-  {
-    price: 'N2.1536',
-    title: 'Fund 1',
-  },
-  {
-    price: 'N2.1536',
-    title: 'Fund 2',
-  },
-  {
-    price: 'N2.1536',
-    title: 'Fund 3',
-  },
-  {
-    price: 'N2.1536',
-    title: 'Fund 4',
-  },
-]
-
 export const whyChooseData: { title: string, description: string, }[] = [
   {
     title: 'Trusted Excellence',

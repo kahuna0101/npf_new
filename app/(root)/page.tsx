@@ -4,15 +4,38 @@ import OpenAccountButtons from "@/components/OpenAccountButtons";
 import PensionAdministrationBox from "@/components/PensionAdministrationBox";
 import QuickActionsBox from "@/components/QuickActionsBox";
 import TestimonialBox from "@/components/TestimonialBox";
-import { pensionAdministrationData, priceData, quickActionsData, whyChooseData } from "@/data";
+import { pensionAdministrationData, quickActionsData, whyChooseData } from "@/data";
+import { getDailyUnitPrice } from "@/lib/action";
 import { testimonialsQuery } from "@/lib/queries";
 import { client } from "@/sanity/lib/client";
 import { Testimonial } from "@/sanity/types";
 import Image from "next/image";
-import Link from "next/link";
 
 export default async function Home() {
- const testimonials = await client.fetch(testimonialsQuery);
+  const testimonials = (await client.fetch(testimonialsQuery)).slice(0, 2);
+  const data: any = await getDailyUnitPrice()
+
+  const { today, yesterday } = data
+
+  const date = new Date(today.Valuation_Date).toLocaleDateString("en-GB", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  })
+
+  const getChange = (fund: string) => {
+    if (!yesterday || !yesterday[fund]) return null
+    const diff = today[fund] - yesterday[fund]
+    const percent = ((diff / yesterday[fund]) * 100).toFixed(2)
+    return { diff, percent }
+  }
+
+  const getColor = (diff: number | null) => {
+    if (diff === null) return "text-gray-500"
+    if (diff > 0) return "text-green-600"
+    if (diff < 0) return "text-red-600"
+    return "text-gray-500"
+  }
 
   return (
     <>
@@ -48,17 +71,29 @@ export default async function Home() {
 
         <div className="relative z-10 flex flex-col items-center gap-5">
           <p className="text-base font-normal text-white capitalize text-center">OUR FUND PRICES</p>
-          <h1 className="text-[40px] leading-13 font-bold text-white text-center">Fund prices as today</h1>
+          <h1 className="text-[40px] leading-13 font-bold text-white text-center">Fund prices as at {date}</h1>
           <p className="text-base font-normal text-white text-center">Competitive returns, consistent performance. Explore your options.</p>
         </div>
 
         <div className="relative z-10 flex flex-wrap items-center justify-center gap-7.5">
-          {priceData.map((item, index) => (
-            <div key={index} className="w-2xs h-25 gap-1 flex flex-col justify-center items-center rounded-[10px] border-2 border-white">
-              <h2 className="text-2xl font-semibold text-white">{item.price}</h2>
-              <p className="text-base font-normal text-white">{item.title}</p>
-            </div>
-          ))}
+          {Object.entries(today).filter(([key]) => key.startsWith("FUND"))
+            .map(([key, value]) => {
+              const change = getChange(key);
+              return (
+                <div key={key} className="w-2xs h-25 gap-1 flex flex-col justify-center items-center rounded-[10px] border-2 border-white">
+                  <h2 className="text-2xl font-semibold text-white">{key}</h2>
+                  <p className="text-base font-normal text-white">{Number(value)}</p>
+                  {change && (
+                    <p className={`text-sm ${getColor(change.diff)}`}>
+                      {change.diff > 0 && "▲"}
+                      {change.diff < 0 && "▼"}
+                      {change.diff === 0 && "-"} {change.percent}%
+                    </p>
+                  )}
+                </div>
+              )
+            }
+            )}
         </div>
       </section>
 
@@ -87,7 +122,7 @@ export default async function Home() {
           <p className="text-base font-normal text-white text-center">Join over 1.2 million Nigerians who have chosen NPF Pensions for <br /> their retirement planning</p>
         </div>
 
-        <OpenAccountButtons className="relative z-10 items-center"/>
+        <OpenAccountButtons className="relative z-10 items-center" />
       </section>
 
       <section className="flex flex-col items-center justify-center bg-white-100 p-12 gap-12.5 sm:p-25">
@@ -97,8 +132,8 @@ export default async function Home() {
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-8">
-          {testimonials.map((item:Testimonial ) => (
-            <TestimonialBox key={item._id} name={item.name!} occupation={item.occupation!} testimony={item.testimony!}  />
+          {testimonials.map((item: Testimonial) => (
+            <TestimonialBox key={item._id} name={item.name!} occupation={item.occupation!} testimony={item.testimony!} />
           ))}
         </div>
 
@@ -112,17 +147,17 @@ export default async function Home() {
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-7.5">
-          <Image src="/images/pencom.png" alt="pencom logo" width={100} height={180}/>
+          <Image src="/images/pencom.png" alt="pencom logo" width={100} height={180} />
         </div>
       </section>
 
       <section className="flex flex-col items-center justify-center bg-light-blue-100 p-8 gap-12.5 sm:p-25">
         <div className="flex flex-col md:flex-row gap-5 bg-blue-100 rounded-[50px] px-10 md:px-[70px] py-12.5 md:py-20">
           <div className="flex flex-col gap-5">
-            <h4 className="text-[40px] leading-13 max-md:text-4xl font-bold text-white">Don't miss any update <br/> from us</h4>
+            <h4 className="text-[40px] leading-13 max-md:text-4xl font-bold text-white">Don't miss any update <br /> from us</h4>
             <p className="text-base font-normal text-white">Subscribe and be the first to get all Free Retirement Planning Guide</p>
           </div>
-          
+
           <NewsletterForm />
         </div>
       </section>

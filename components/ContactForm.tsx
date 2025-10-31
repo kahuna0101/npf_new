@@ -43,7 +43,7 @@ const ContactForm = () => {
       toast.success("Your Form has been submitted, our representative will reach out to you soon.")
       form.reset()
     } else {
-      console.log("Form not sent")
+      toast.error("Error submitting Contact Form")
     }
   }
 
