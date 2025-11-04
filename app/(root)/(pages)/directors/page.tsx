@@ -28,7 +28,7 @@ const Directors = async () => {
         <div className="flex flex-wrap items-start justify-center gap-7.5">
           {directors.map((data:Director) => {
             const { _id, name, role, bio } = data;
-            const image  = data?.image ? urlFor(data.image).url(): "";
+            const image  = data?.image ? urlFor(data.image).url(): "https://e7.pngegg.com/pngimages/84/165/png-clipart-united-states-avatar-organization-information-user-avatar-service-computer-wallpaper.png";
             return (
               <TeamBox 
                 key={_id}

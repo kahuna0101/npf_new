@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/dialog"
 import { Suspense } from "react"
 import { Skeleton } from "./ui/skeleton"
+import { ScrollArea } from "@/components/ui/scroll-area"
 
 export type TeamProps = {
     name: string,
@@ -32,7 +33,10 @@ const TeamBox = ({ name, role, bio, image }:TeamProps  ) => {
                 <h4 className="text-base text-black-100 font-bold uppercase text-center">{name}</h4>
             </div>
 
-            <p className="text-sm text-blue-100 font-bold uppercase text-center">{role}</p>
+            <div className="h-12 flex justify-center items-center">
+              <p className="text-sm text-blue-100 font-bold uppercase text-center">{role}</p>  
+            </div>
+            
              <p className="text-sm text-black-100 font-normal line-clamp-3 text-center">{bio}</p>
 
             <Dialog>
@@ -47,7 +51,9 @@ const TeamBox = ({ name, role, bio, image }:TeamProps  ) => {
                             {role}
                         </DialogDescription>
                     </DialogHeader>
-                     <p className="text-sm text-black-100 font-normal">{bio}</p>
+                    <ScrollArea className="w-full h-64">
+                        <p className="text-sm text-black-100 font-normal">{bio}</p> 
+                    </ScrollArea>
                 </DialogContent>
             </Dialog>
         </div>

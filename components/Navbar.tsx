@@ -69,6 +69,7 @@ const Navbar = () => {
                   <DropdownMenuTrigger
                     className={`flex justify-center items-center md:text-sm lg:text-base font-semibold p-4 rounded-md bg-transparent focus-visible:outline-none focus-visible:ring-0 hover:text-white hover:bg-yellow-100 data-[state=open]:bg-yellow-100 data-[state=open]:text-white ${(hasActiveChild || openMenus[item.title]) ? "bg-yellow-100 text-white" : "text-black-100"
                       }`}
+                      key={item.title}
                   >
                     {item.title}
                     <ChevronDownIcon />
@@ -117,7 +118,7 @@ const Navbar = () => {
             />
           </SheetTrigger>
 
-          <SheetContent side="right" className="flex flex-col gap-6 w-full border-none bg-white">
+          <SheetContent side="right" className="flex flex-col gap-4 w-full border-none bg-white">
             <SheetHeader>
               <VisuallyHidden>
                 <SheetTitle>Mobile Menu</SheetTitle>
@@ -132,8 +133,8 @@ const Navbar = () => {
               </div>
             </SheetHeader>
 
-            <div className="flex flex-col p-3">
-              <nav className="flex flex-col gap-4">
+            <div className="flex flex-col p-2">
+              <nav className="flex flex-col gap-3">
                 <NavigationMenu orientation="vertical" viewport={false} className="flex flex-col justify-start items-start w-full h-full">
                   <NavigationMenuList className="flex flex-col gap-4 items-start w-[95vw]">
                     {NavbarLinks.map((item) => {
@@ -143,7 +144,7 @@ const Navbar = () => {
                         <NavigationMenuItem key={item.title} className="w-full">
                           {item.children ? (
                             <>
-                              <NavigationMenuTrigger className={`w-full flex justify-start items-center p-4 py-6.5 text-left md:text-sm lg:text-base font-semibold rounded-md bg-transparent focus-visible:outline-none focus-visible:ring-0 hover:text-white hover:bg-yellow-100 data-[state=open]:bg-yellow-100 data-[state=open]:hover:bg-yellow-100 data-[state=open]:focus:bg-yellow-100 ${(hasActiveChild || openMenus[item.title]) ? "bg-yellow-100 text-white" : "text-black-100"
+                              <NavigationMenuTrigger key={item.title} className={`w-full flex justify-start items-center p-4 py-6.5 text-left md:text-sm lg:text-base font-semibold rounded-md bg-transparent focus-visible:outline-none focus-visible:ring-0 hover:text-white hover:bg-yellow-100 data-[state=open]:bg-yellow-100 data-[state=open]:hover:bg-yellow-100 data-[state=open]:focus:bg-yellow-100 ${(hasActiveChild || openMenus[item.title]) ? "bg-yellow-100 text-white" : "text-black-100"
                                 }`}>{item.title}</NavigationMenuTrigger>
                               <NavigationMenuContent>
                                 <ul className="flex flex-col gap-2">
@@ -224,7 +225,7 @@ const Navbar = () => {
         </Sheet>
       </div>
 
-      <Button asChild className="group md:w-30 md:h-12 xl:w-52 max-md:hidden bg-white-100 text-blue-100 border border-blue-100 hover:bg-blue-100 hover:text-white-100 transition-colors duration-200">
+      <Button asChild className="group md:w-30 h-12 xl:w-40 max-md:hidden bg-white-100 text-blue-100 border border-blue-100 hover:bg-blue-100 hover:text-white-100 transition-colors duration-200">
         <a href="https://online.npfpensions.com.ng/NPFSelfServices/Login.aspx#!" target="_blank" className="text-base font-semibold flex items-center gap-2">
           <Image src="/icons/login.svg" width={20} height={20} alt="Log in" className="transition duration-200 group-hover:invert group-hover:brightness-0 group-hover:contrast-200" />
           Log In

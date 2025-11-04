@@ -140,7 +140,7 @@ export const quickActionsData: QuickActionsBoxProps[] = [
   {
     title: "PenCom Guidelines",
     description: "Access PenCom Guidelines",
-    href: "/forms-downloads",
+    href: "https://www.pencom.gov.ng/category/regulations-codes/",
     icon: "/icons/downloads.svg"
   },
 ]

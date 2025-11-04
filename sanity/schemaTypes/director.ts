@@ -16,8 +16,7 @@ export const director = defineType({
     }),
     defineField({
        name: "image",
-      type: "image", 
-      validation: (rule) => rule.required(),
+       type: "image",
     }),
     defineField({
        name: "role",

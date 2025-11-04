@@ -17,7 +17,6 @@ export const management = defineType({
     defineField({
        name: "image",
       type: "image", 
-      validation: (rule) => rule.required(),
     }),
     defineField({
        name: "role",
