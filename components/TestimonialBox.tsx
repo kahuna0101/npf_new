@@ -10,7 +10,7 @@ const TestimonialBox = ({ name, occupation, testimony }:TestimonialBoxProps ) =>
     const [firstName, LastName] = name.split(" ");
 
     return (
-        <div className="w-xs sm:w-[605px] sm:h-[261px] flex flex-col gap-5 px-5 py-7.5 rounded-[20px] bg-white shadow-xl">
+        <div className="w-xs sm:w-[605px] flex flex-col gap-5 px-5 py-7.5 rounded-[20px] bg-white shadow-xl">
             <div className="flex justify-center items-center gap-1.5">
                 {[1, 2, 3, 4, 5].map((index) => (
                  <Image src="/icons/star.svg" width={24} height={24} alt="star" key={index}/>
