@@ -28,7 +28,7 @@ export default function NotFound() {
         <div className="space-y-4">
           <p className="text-xl md:text-2xl glitch-message font-extralight text-neutral-500">This page fell into the void.</p>
           <p className="text-base md:text-lg glitch-subtitle font-extralight text-red-600">
-            {"// ERROR: You're on a wrong Page, Click the button to find your way Home"}
+            {"// ERROR: You're on a wrong Page, Click the button to get to NPF Pension"}
           </p>
         </div>
 

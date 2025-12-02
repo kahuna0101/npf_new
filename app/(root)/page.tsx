@@ -1,3 +1,4 @@
+import FundPriceTable from "@/components/FundPriceTable";
 import { HeroSlider } from "@/components/HeroSlider";
 import NewsletterForm from "@/components/NewsletterForm";
 import OpenAccountButtons from "@/components/OpenAccountButtons";
@@ -5,7 +6,6 @@ import PensionAdministrationBox from "@/components/PensionAdministrationBox";
 import QuickActionsBox from "@/components/QuickActionsBox";
 import TestimonialBox from "@/components/TestimonialBox";
 import { pensionAdministrationData, quickActionsData, whyChooseData } from "@/data";
-import { getDailyUnitPrice } from "@/lib/action";
 import { testimonialsQuery } from "@/lib/queries";
 import { client } from "@/sanity/lib/client";
 import { Testimonial } from "@/sanity/types";
@@ -13,29 +13,6 @@ import Image from "next/image";
 
 export default async function Home() {
   const testimonials = (await client.fetch(testimonialsQuery)).slice(0, 2);
-  const data: any = await getDailyUnitPrice()
-
-  const { today, yesterday } = data
-
-  const date = new Date(today.Valuation_Date).toLocaleDateString("en-GB", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  })
-
-  const getChange = (fund: string) => {
-    if (!yesterday || !yesterday[fund]) return null
-    const diff = today[fund] - yesterday[fund]
-    const percent = ((diff / yesterday[fund]) * 100).toFixed(2)
-    return { diff, percent }
-  }
-
-  const getColor = (diff: number | null) => {
-    if (diff === null) return "text-gray-500"
-    if (diff > 0) return "text-green-600"
-    if (diff < 0) return "text-red-600"
-    return "text-gray-500"
-  }
 
   return (
     <>
@@ -71,29 +48,11 @@ export default async function Home() {
 
         <div className="relative z-10 flex flex-col items-center gap-5">
           <p className="text-base font-normal text-white capitalize text-center">OUR FUND PRICES</p>
-          <h1 className="text-[40px] leading-13 font-bold text-white text-center">Fund prices as at {date}</h1>
-          <p className="text-base font-normal text-white text-center">Competitive returns, consistent performance. Explore your options.</p>
+          <h1 className="text-[40px] leading-13 font-bold text-white text-center">Fund prices as at {new Date().toDateString()}</h1>
         </div>
 
-        <div className="relative z-10 flex flex-wrap items-center justify-center gap-7.5">
-          {Object.entries(today).filter(([key]) => key.startsWith("FUND"))
-            .map(([key, value]) => {
-              const change = getChange(key);
-              return (
-                <div key={key} className="w-2xs h-25 gap-1 flex flex-col justify-center items-center rounded-[10px] border-2 border-white">
-                  <h2 className="text-2xl font-semibold text-white">{key}</h2>
-                  <p className="text-base font-normal text-white">{Number(value)}</p>
-                  {change && (
-                    <p className={`text-sm ${getColor(change.diff)}`}>
-                      {change.diff > 0 && "▲"}
-                      {change.diff < 0 && "▼"}
-                      {change.diff === 0 && "-"} {change.percent}%
-                    </p>
-                  )}
-                </div>
-              )
-            }
-            )}
+        <div className="z-10 flex w-full lg:w-[80%] flex-wrap items-center justify-center gap-7.5">
+          <FundPriceTable />
         </div>
       </section>
 

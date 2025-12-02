@@ -72,3 +72,12 @@ export const testimonialsQuery = defineQuery(`*[_type == "testimonial"] | order(
   occupation,
   testimony
 }`);
+
+export const fundPriceQuery = defineQuery(`*[_type == "fund"] | order(_createdAt asc) {
+  _id,
+  date,
+  fund1,
+  fund2,
+  fund3,
+  fund4
+}`);

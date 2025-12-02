@@ -148,33 +148,29 @@ export const quickActionsData: QuickActionsBoxProps[] = [
 export const whyChooseData: { title: string, description: string, }[] = [
   {
     title: 'Trusted Excellence',
-    description: "Over two decades of reliable pension fund administration with industry-leading performance.",
-  },
-  {
-    title: 'Secure & Regulated',
-    description: "Licensed by PenCom with advanced security measures to protect your investments.",
+    description: "Tailored exclusively for members of the Nigeria Police Force.",
   },
   {
     title: 'Customer-Centric',
-    description: "Dedicated support team and personalized service to help you achieve your retirement goals.",
+    description: "Dedicated to addressing and resolving the unique pension challenges faced by police personnel.",
   },
   {
     title: 'Strong Performance',
-    description: "Consistently competitive returns through expert fund management and diversified investments.",
+    description: "Proven track record of delivering consistently high returns on investment (ROI).",
   },
 ]
 
 export const pensionPageData: PensionPageProps[] = [
   {
     title: "Retirement Savings Account (RSA)",
-    description: "Our retirement savings account (rsa) is designed with your financial security in mind. We combine professional investment management with personalized service to ensure your retirement savings grow consistently over time.",
-    features: ["Mandatory 18% contribution (8% employee, 10% employer)", "Professional fund management", "Multiple investment options", "Regular statements and updates"],
-    benefits: ["Guaranteed retirement income", "Tax advantages on contributions", "Professional investment management", "Portable across employers"]
+    description: "Unlock the value of your Retirement Savings Account (RSA) to make homeownership a reality. Our RSA Mortgage Equity Contribution option is designed to help you use part of your pension savings toward your dream property.",
+    features: ["Eligibility for CPS Contributors: Minimum of 60 months cumulative contributions from both employer and employee under the Contributory Pension Scheme (CPS).", "Eligibility for Micro Pension Plan Contributors: Minimum of 60 months cumulative contributions.", "Married Couples: Both spouses can individually qualify if they meet the eligibility criteria.", "Data Recapture: RSA holders must have completed the Data Recapture Exercise.", "Property Offer Letter: A valid Offer Letter signed by the property owner and verified by the Mortgage Lender is required."],
+    benefits: ["Lump-Sum Payment: A one-off payment from your RSA at retirement.", "Monthly Pension Payments: Regular programmed withdrawals for steady income.", "Pension Enhancement: Eligible retirees can apply for pension enhancement."]
   },
   {
     title: "Voluntary Contributions (VC)",
     description: "Our voluntary contributions (vc) is designed with your financial security in mind. We combine professional investment management with personalized service to ensure your retirement savings grow consistently over time.",
-    features: ["Flexible contribution amounts", "Multiple payment options", "Higher retirement benefits", "Tax-efficient savings"],
+    features: ["Boost your retirement savings and supplement your pension benefits.", "Enjoy flexibility to decide how much to contribute and when to make withdrawals."],
     benefits: ["Increased retirement income", "Tax deductions on contributions", "Flexible withdrawal options", "Compound growth potential"]
   },
   {
@@ -247,6 +243,29 @@ export const faqData: FaqsDataProps[] = [
     value: "generalQuestions",
     category: "General Questions",
     faqs: [
+            {
+        question: "When do I qualify for retirement benefits?",
+        answer: "You become eligible upon reaching retirement age or opting for early retirement in line with your organization's policy and the Pension Reform Act."
+      },
+      {
+        question: "What documents are required to process my benefits?",
+        answer: `*   Completed application forms
+                  *   Valid ID
+                  *   Retirement letter
+                  *   Age/birth certificate
+                  *   Bank details
+                  *   Passport photo
+                  *   Any additional supporting documents
+                  `
+      },
+      {
+        question: "How long does processing take?",
+        answer: "Once all documents are complete and your RSA is consolidated, processing takes 48 hours."
+      },
+      {
+        question: "Can I switch between PW and Annuity?",
+        answer: "Yes, you can move from Programmed Withdrawal to Annuity, but switching back is not allowed."
+      },
       {
         question: "I have a Retirement Savings Account with my PFA. Why do I have to re-register?",
         answer:
@@ -268,6 +287,23 @@ export const faqData: FaqsDataProps[] = [
     value: "retirementSavingsAccount",
     category: "Retirement Savings Account",
     faqs: [
+      {
+        question: "As police personnel am I entitled to 25% RSA mortgage?",
+        answer: `To be eligible for the 25% RS withdrawal for mortgage? You must:
+            a. Be active in service
+            b. Have an RSA
+            c. Complete the Data Recapture Exercise
+            d. Have 60 months (5 years) of combined employer and employee contributions
+            e. Have more than three years left before retirement.`
+      },
+      {
+        question: "How can I resolve the zero-balance problem of my RSA",
+        answer: "Complete a nominal Roll Update form with your Pension Desk Officer in your command. Complete and submit your payslip to any of our office or service Centre"
+      },
+      {
+        question: "Can I withdraw my contributions before retirement?",
+        answer: "Yes, you can withdraw up to 25% of your RSA balance if you suffer job loss  or retire before 50 years of age."
+      },
       {
         question: "Does this registration nullify my existing RSA balance?",
         answer:
@@ -316,41 +352,45 @@ export const faqData: FaqsDataProps[] = [
     category: "Benefits & Withdrawals",
     faqs: [
       {
-        question: "How can one temporarily exit from the scheme?",
-        answer:
-          "You can temporarily exit from the scheme voluntarily when you disengage from active service before attaining the retirement age based on the terms of your employment. This is also applicable if you are retiring in accordance with the terms and conditions of your employment but less than 50 years of age and you do not secure another employment in (4) four months. You can request to be paid a lump sum up to a maximum of 25% of the balance in your RSA. Upon attaining the age of 50 years, you can access the balance of 75% either as an en-bloc payment or through programmed withdrawals."
+        question: "What benefits can I access when I retire?",
+        answer: "You can receive a lump-sum payment and choose between Programmed Withdrawal or Annuity for your monthly pension, based on eligibility."
       },
-      {
-        question: "Why are pay slips required for retirement benefits processing?",
-        answer:
-          "The provision of copies of the last three months' payslip for normal retirement is a PENCOM requirement, even for balances less than N550,000. The RSA balances as at the time of applying, may be exclusive of the accrued rights and when paid may be N550,000"
-      },
-      {
-        question: "Where can a death certificate be obtained?",
-        answer:
-          "A death certificate can be obtained from the hospital. However, if the deceased did not die in a hospital, a death certificate can be obtained from the National Population Commission."
-      },
-      {
-        question: "What can be done to expedite the processing of a survivor benefit?",
-        answer:
-          "We strongly advise that all contributors should draw up a will. This will eliminate the lengthy delays faced by the survivor in obtaining from the National Population Commission."
-      },
-      {
-        question: "What is the age limit for contribution to be accessed?",
-        answer:
-          "A contributor can access the balance in his/her RSA when he/she has retired or attained the age of 50 years, whichever comes later. If she/her retires or is rendered redundant by his/her employer, before attaining the age of 50 years he/she can access 25% of his/her RSA balance immediately."
-      },
-      {
-        question: "Why must a disengaged staff wait for four months to access funds in his/her RSA?",
-        answer:
-          "This is in compliance with the Pension Reform Act (Revised 2014) which states that a contributor who is yet to attain the age of 50 years can access 25% of his/her RSA balance after four months of being rendered redundant by his/her employer. This provision is based on the assumption that contributor younger than 5o years can still get another job since pension funds are expected to be reserved for old age."
-      },
-      {
-        question: "What factors affect the amount of retirement benefit a retiree receives?",
-        answer:
-          "The retirement benefits of a retiree is determined by the parameters such as RSA balance at retirement and Gender amongst others."
-      }
-    ]
+  {
+    question: "How can one temporarily exit from the scheme?",
+    answer:
+      "You can temporarily exit from the scheme voluntarily when you disengage from active service before attaining the retirement age based on the terms of your employment. This is also applicable if you are retiring in accordance with the terms and conditions of your employment but less than 50 years of age and you do not secure another employment in (4) four months. You can request to be paid a lump sum up to a maximum of 25% of the balance in your RSA. Upon attaining the age of 50 years, you can access the balance of 75% either as an en-bloc payment or through programmed withdrawals."
+  },
+  {
+    question: "Why are pay slips required for retirement benefits processing?",
+    answer:
+      "The provision of copies of the last three months' payslip for normal retirement is a PENCOM requirement, even for balances less than N550,000. The RSA balances as at the time of applying, may be exclusive of the accrued rights and when paid may be N550,000"
+  },
+  {
+    question: "Where can a death certificate be obtained?",
+    answer:
+      "A death certificate can be obtained from the hospital. However, if the deceased did not die in a hospital, a death certificate can be obtained from the National Population Commission."
+  },
+  {
+    question: "What can be done to expedite the processing of a survivor benefit?",
+    answer:
+      "We strongly advise that all contributors should draw up a will. This will eliminate the lengthy delays faced by the survivor in obtaining from the National Population Commission."
+  },
+  {
+    question: "What is the age limit for contribution to be accessed?",
+    answer:
+      "A contributor can access the balance in his/her RSA when he/she has retired or attained the age of 50 years, whichever comes later. If she/her retires or is rendered redundant by his/her employer, before attaining the age of 50 years he/she can access 25% of his/her RSA balance immediately."
+  },
+  {
+    question: "Why must a disengaged staff wait for four months to access funds in his/her RSA?",
+    answer:
+      "This is in compliance with the Pension Reform Act (Revised 2014) which states that a contributor who is yet to attain the age of 50 years can access 25% of his/her RSA balance after four months of being rendered redundant by his/her employer. This provision is based on the assumption that contributor younger than 5o years can still get another job since pension funds are expected to be reserved for old age."
+  },
+  {
+    question: "What factors affect the amount of retirement benefit a retiree receives?",
+    answer:
+      "The retirement benefits of a retiree is determined by the parameters such as RSA balance at retirement and Gender amongst others."
+  }
+]
   }
 ];
 

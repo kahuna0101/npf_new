@@ -13,6 +13,19 @@
  */
 
 // Source: schema.json
+export type Fund = {
+  _id: string;
+  _type: "fund";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  date?: string;
+  fund1?: string;
+  fund2?: string;
+  fund3?: string;
+  fund4?: string;
+};
+
 export type Testimonial = {
   _id: string;
   _type: "testimonial";
@@ -252,5 +265,5 @@ export type SanityAssetSourceData = {
   url?: string;
 };
 
-export type AllSanitySchemaTypes = Testimonial | Management | Job | Form | Slider | Director | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
+export type AllSanitySchemaTypes = Fund | Testimonial | Management | Job | Form | Slider | Director | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
 export declare const internalGroqTypeReferenceTo: unique symbol;

@@ -11,4 +11,5 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem('job').title('Job Opening'),
       S.documentTypeListItem('management').title('Managements'),
       S.documentTypeListItem('testimonial').title('Testimonials'),
+      S.documentTypeListItem('fund').title('Fund Prices'),
     ])

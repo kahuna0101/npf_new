@@ -27,14 +27,9 @@ const AboutUs = () => {
           <div className="lg:w-155 flex flex-1 flex-col gap-7.5">
             <h1 className="text-[40px] leading-13 font-bold text-black-100">Our Story</h1>
             <p className="text-base font-normal text-grey-100">
-              Founded in 2004, NPF Pensions Limited has grown to become one of Nigeria's most trusted pension fund administrators. With over two decades of experience, we have consistently delivered superior returns while maintaining the highest standards of integrity and customer service.
-            </p>
+              The Nigeria Police force faced challenges because of the peculiarities the pension scheme. The idea of setting up NPF Pension Limited came as a solution the problem. The company was incorporated on 2ist October 2013 and licensed by National Pension Commission (PenCom) on 12th August 2014.            </p>
             <p className="text-base font-normal text-grey-100">
-              Our journey began with a simple mission: to ensure that every Nigerian has access to a secure and dignified retirement. Today, we manage over ₦2.5 trillion in assets for more than 1.2 million customers across the country.
-            </p>
-            <p className="text-base font-normal text-grey-100">
-              Through innovation, dedication, and unwavering commitment to our customers, we continue to set new standards in the pension industry while helping Nigerians build wealth for their future.
-            </p>
+              Today, NPF Pensions ranked top 5 Pension Fund Administrator in the country with Asset Under Management of over 1 trillion.</p>
           </div>
           <div className="flex flex-1 flex-col gap-7.5">
             <div className="flex flex-col gap-7.5 p-7.5 rounded-[10px] border border-gray-100">
@@ -42,7 +37,7 @@ const AboutUs = () => {
                 <Image src="/icons/spiral.svg" width={24} height={24} alt='mission' />
                 <h3 className="text-xl text-black-100 font-medium">Our Mission</h3>
               </div>
-              <p className="text-base font-normal text-grey-100">To provide innovative, reliable, and customer-centric pension solutions that secure the financial future of our customers while delivering superior returns on their investments.</p>
+              <p className="text-base font-normal text-grey-100">To provide excellent services to customers while ensuring safety and best possible returns on their pension assets, and value creation for all stakeholders.</p>
             </div>
 
             <div className="flex flex-col gap-7.5 p-7.5 rounded-[10px] border border-gray-100">
@@ -50,7 +45,7 @@ const AboutUs = () => {
                 <Image src="/icons/spiral.svg" width={24} height={24} alt='vision' />
                 <h3 className="text-xl text-black-100 font-medium">Our Vision</h3>
               </div>
-              <p className="text-base font-normal text-grey-100">To be the leading pension fund administrator in Africa, recognized for excellence, innovation, and creating lasting value for our stakeholders.</p>
+              <p className="text-base font-normal text-grey-100">To be the foremost  customer-centric Pension Administration in Nigeria.</p>
             </div>
           </div>
         </div>

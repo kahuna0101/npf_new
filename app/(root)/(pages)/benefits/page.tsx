@@ -31,7 +31,7 @@ const Benefits = () => {
           <p className="text-base md:text-lg font-medium text-white text-center">Understanding your benefit options and accessing your retirement savings <br /> when you need them most</p>
 
           {/* upload benefit guide document */}
-          <Link href="/" className="w-60 h-14 gap-2.5 bg-blue-100 hover:bg-yellow-100 text-base font-semibold border hover:border-none border-blue-100 text-white mx-auto rounded-md flex items-center justify-center relative">
+          <Link href="/docs/REGULATIONS-FOR-THE-ADMINISTRATION-OF-RETIREMENT-AND-TERMINAL-BENEFITS.pdf" target="_blank" className="w-60 h-14 gap-2.5 bg-blue-100 hover:bg-yellow-100 text-base font-semibold border hover:border-none border-blue-100 text-white mx-auto rounded-md flex items-center justify-center relative">
             <Image src="/images/downloads.png" width={24} height={24} alt='download' className="invert brightness-0 contrast-200" />
             Download Benefit Guide
           </Link>
