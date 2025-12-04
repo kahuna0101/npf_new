@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";
+import { ConsentManager } from "../components/consent-manager";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,13 +22,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={inter.className}
-      >
-        {children}
-        <Script id="tawk-to" strategy="afterInteractive">
-            {`
+        <html lang="en">
+          <body
+            className={inter.className}
+          >
+    		<ConsentManager>
+    			
+            {children}
+            <Script id="tawk-to" strategy="afterInteractive">
+                {`
               var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
               (function(){
               var s1=document.createElement("script"),
@@ -39,9 +42,11 @@ export default function RootLayout({
               s0.parentNode.insertBefore(s1,s0);
               })();
             `}
-        </Script>
-        <Toaster />
-      </body>
-    </html>
-  );
+            </Script>
+            <Toaster />
+          
+    		</ConsentManager>
+    	</body>
+        </html>
+      )
 }

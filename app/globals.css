@@ -124,6 +124,8 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+.c15t-default-banner { display: none !important; }
+
 @layer base {
   * {
     @apply border-border scroll-smooth outline-ring/50;
