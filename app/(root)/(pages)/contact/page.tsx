@@ -3,6 +3,7 @@ import ContactTabs from "@/components/ContactTabs"
 import Image from "next/image"
 
 const Contact = () => {
+  const address = "NPF Pensions Limited House Plot 3820, R.B. Dikko Road, Off Shehu Shagari Way, Central Business District (CBD) Abuja - Nigeria."
   return (
     <section className="w-full">
       <div className="relative h-[50vh] md:h-[443px] flex flex-col items-center justify-center p-8 gap-12.5 sm:p-25 bg-[url('/images/vc-bg.jpg')] bg-cover bg-center overflow-hidden">
@@ -23,9 +24,9 @@ const Contact = () => {
             <div className="md:w-80  lg:w-96 xl:w-[590px] flex flex-col gap-7.5 p-7.5 bg-white rounded-[10px] border border-gray-100">
               <div className="flex flex-col gap-2.5">
                 <div className="flex gap-2.5">
-                <Image src="/icons/headset.svg" width={26} height={26} alt='headset' />
-                <h3 className="text-2xl text-black-100 font-semibold">Head Office</h3>
-              </div>
+                  <Image src="/icons/headset.svg" width={26} height={26} alt='headset' />
+                  <h3 className="text-2xl text-black-100 font-semibold">Head Office</h3>
+                </div>
                 <p className="text-base font-normal text-grey-100">Get in touch with us if you need to</p>
               </div>
 
@@ -33,7 +34,9 @@ const Contact = () => {
                 <Image src="/icons/phone.svg" width={24} height={24} alt='phone' />
                 <div className="flex flex-col gap-2.5">
                   <h4 className="text-lg text-black-100 font-medium">Customer Service</h4>
-                  <p className="text-base font-normal text-grey-100">02094603403</p>
+                  <a href="tel:+2348037869385" className="hover:text-blue-600 text-base font-normal text-grey-100">
+                    08037869385
+                  </a>
                 </div>
               </div>
 
@@ -41,14 +44,21 @@ const Contact = () => {
                 <Image src="/icons/email.svg" width={24} height={24} alt='email' />
                 <div className="flex flex-col gap-2.5">
                   <h4 className="text-lg text-black-100 font-medium">Email Support</h4>
-                  <a href="mailto:info@npfpensions.com" className="text-base font-normal text-grey-100">Info@npfpensions.com</a>
+                  <a href="mailto:info@npfpensions.com" className="text-base font-normal hover:text-blue-600 text-grey-100">Info@npfpensions.com</a>
                 </div>
               </div>
               <div className="flex gap-2.5 items-start">
                 <Image src="/icons/address.svg" width={24} height={24} alt='address' />
                 <div className="flex flex-col gap-2.5">
                   <h4 className="text-lg text-black-100 font-medium">Head Office</h4>
-                  <p className="text-base font-normal text-grey-100">NPF Pensions Limited House Plot 3820, R.B. Dikko Road, Off Shehu Shagari Way, Central Business District (CBD) Abuja - Nigeria.</p>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-blue-600 text-base font-normal text-grey-100"
+                  >
+                    {address}
+                  </a>
                 </div>
               </div>
               <div className="flex gap-2.5 items-start">
@@ -74,11 +84,11 @@ const Contact = () => {
       <div className="flex flex-col items-center justify-center bg-white p-8 gap-12.5 sm:p-25">
         <div className="flex flex-col gap-5">
           <h1 className="section-header">Our Branch Network</h1>
-          <p className="text-base font-normal text-grey-100 text-center">Visit us at any of our conveniently located branches across <br/> Nigeria.</p>
+          <p className="text-base font-normal text-grey-100 text-center">Visit us at any of our conveniently located branches across <br /> Nigeria.</p>
         </div>
 
         <ContactTabs />
-        
+
       </div>
     </section>
   )

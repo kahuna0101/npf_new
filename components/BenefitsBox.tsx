@@ -7,9 +7,21 @@ const BenefitsBox = ({ benefits }: PensionPageProps) => {
             <div className="flex flex-col gap-5">
                 <h3 className="text-xl text-black-100 font-medium">Benefits You'll Enjoy</h3>
                 <ul className="flex flex-col gap-2.5 list-disc pl-6">
-                    {benefits?.map((item, index) => (
-                        <li key={index} className="text-base font-normal text-grey-100">{item}</li>
-                    ))}
+                    {benefits?.map((item, index) => {
+                        if (item.includes(":")) {
+                            const [label, detail] = item.split(":");
+                            return (
+                                <li key={index} className="text-base font-normal text-grey-100">
+                                    <span className="font-bold">{label}:</span>{detail}
+                                </li>
+                            );
+                        } 
+                        return (
+                            <li key={index} className="text-base font-normal text-grey-100">
+                                {item}
+                            </li>
+                        );
+                    })}
                 </ul>
             </div>
 

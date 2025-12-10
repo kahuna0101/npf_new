@@ -45,7 +45,7 @@ const AboutUs = () => {
                 <Image src="/icons/spiral.svg" width={24} height={24} alt='vision' />
                 <h3 className="text-xl text-black-100 font-medium">Our Vision</h3>
               </div>
-              <p className="text-base font-normal text-grey-100">To be the foremost  customer-centric Pension Administration in Nigeria.</p>
+              <p className="text-base font-normal text-grey-100">To be the foremost customer-centric Pension Administration in Nigeria.</p>
             </div>
           </div>
         </div>

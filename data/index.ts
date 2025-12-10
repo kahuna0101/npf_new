@@ -86,7 +86,7 @@ export const services: { title: string; href: string }[] = [
 ]
 
 export const contacts: { title: string; href?: string }[] = [
-  { title: "+234 (0) 1 234 5678", href: "tel:+234012345678" },
+  { title: "+234(0) 80 3786 9385", href: "tel:+2348037869385" },
   { title: "info@npfpensions.com", href: "mailto:info@npfpensions.com" },
   { title: "NPF Building, Victoria Island, Lagos, Nigeria", href: "https://www.google.com/maps?q=NPF+Building,+Victoria+Island,+Lagos,+Nigeria" },
 ]
@@ -164,13 +164,13 @@ export const pensionPageData: PensionPageProps[] = [
   {
     title: "Retirement Savings Account (RSA)",
     description: "Unlock the value of your Retirement Savings Account (RSA) to make homeownership a reality. Our RSA Mortgage Equity Contribution option is designed to help you use part of your pension savings toward your dream property.",
-    features: ["Eligibility for CPS Contributors: Minimum of 60 months cumulative contributions from both employer and employee under the Contributory Pension Scheme (CPS).", "Eligibility for Micro Pension Plan Contributors: Minimum of 60 months cumulative contributions.", "Married Couples: Both spouses can individually qualify if they meet the eligibility criteria.", "Data Recapture: RSA holders must have completed the Data Recapture Exercise.", "Property Offer Letter: A valid Offer Letter signed by the property owner and verified by the Mortgage Lender is required."],
+    features: ["Secure Pension Management You Can Trust: At NPF Pensions Ltd, your RSA is professionally managed under strict PenCom regulations to ensure safety and compliance.", "Transparent & Convenient Access: Track your balance, contributions, and statements anytime through our digital platforms and customer service channels.", "Consistent, Competitive Returns: We focus on stable investment performance to grow your retirement savings responsibly over time.", "Dedicated Support Nationwide: With our branch network and responsive service teams, NPF Pensions Ltd ensures that every RSA holder gets prompt support wherever they are."],
     benefits: ["Lump-Sum Payment: A one-off payment from your RSA at retirement.", "Monthly Pension Payments: Regular programmed withdrawals for steady income.", "Pension Enhancement: Eligible retirees can apply for pension enhancement."]
   },
   {
     title: "Voluntary Contributions (VC)",
     description: "Our voluntary contributions (vc) is designed with your financial security in mind. We combine professional investment management with personalized service to ensure your retirement savings grow consistently over time.",
-    features: ["Boost your retirement savings and supplement your pension benefits.", "Enjoy flexibility to decide how much to contribute and when to make withdrawals."],
+    features: ["Flexible Top-Up Savings: NPF Pensions Ltd allows you to add voluntary contributions at your convenience to increase your long-term wealth.", "Enjoy Tax Savings: You can reduce your taxable income through voluntary contributions, allowing you to save more while paying less in taxes—especially when contributions are kept for the required minimum period.", "Faster Wealth Growth: Your VC is invested to earn competitive returns, helping your savings grow over time.", "Quick Access to Funds: You can withdraw a portion of your VC after the regulatory waiting period, giving you the flexibility to meet financial needs without touching your main RSA balance."],
     benefits: ["Increased retirement income", "Tax deductions on contributions", "Flexible withdrawal options", "Compound growth potential"]
   },
   {
@@ -419,24 +419,29 @@ export const careerWhyData: careerWhyProps[] = [
 
 export const valuesData: valueProps[] = [
   {
-    title: "Trust & Security",
-    description: "We prioritize the security of your funds with robust investment strategies and transparent reporting.",
+    title: "Security & Accountability",
+    description: "We safeguard contributors' funds with strict compliance, sound governance, and responsible investment practices.",
     icon: "/icons/guard.svg"
   },
   {
-    title: "Excellence",
-    description: "We strive for excellence in all our services, continuously improving to exceed expectations.",
+    title: "Service Excellence",
+    description: "We are committed to delivering timely, responsive, and professional service that puts our clients' needs first.",
     icon: "/icons/excellence.svg"
   },
   {
-    title: "Client-Centric",
-    description: "Your financial well-being is our priority. We provide personalized service and support.",
+    title: "Commitment to Our Stakeholders",
+    description: "We serve with dedication, respect, and fairness, ensuring every client's retirement future is secure.",
     icon: "/icons/heart.svg"
   },
   {
     title: "Integrity",
-    description: "We operate with the highest ethical standards and complete transparency in all our dealings.",
+    description: "We uphold the highest ethical standards in all our dealings, ensuring transparency and trust in managing our clients' retirement funds.",
     icon: "/icons/users.svg"
+  },
+  {
+    title: "Innovation",
+    description: "We continuously improve our systems, processes, and service channels to provide seamless pension solutions.",
+    icon: "/icons/excellence.svg"
   },
 ]
 
@@ -447,7 +452,7 @@ export const contactData: ContactDataProps[] = [
     branches: [
       {
         office: "Regional Office",
-        address: "NPF Pensions Limited, Shendam Road, Opposite Ministry of Local Government and Chieftaincy Affairs Lafia. Tel: 02094603401 ext 1060."
+        address: "NPF Pensions Limited, Shendam Road, Opposite Ministry of Local Government and Chieftaincy Affairs Lafia."
       },
       {
         office: "Regional Manager",
@@ -507,7 +512,7 @@ export const contactData: ContactDataProps[] = [
       },
       {
         office: "Police Pension Office",
-        address: "517 Sylvester Ugoh Crescent, Behind Ecobank Jabi Abuja."
+        address: "517 Sylvester Ugoh Crescent, off Idris Ibrahim Crescent, Behind Ecobank Jabi Abuja."
       },
     ]
   },
@@ -517,7 +522,7 @@ export const contactData: ContactDataProps[] = [
     branches: [
       {
         office: "Regional Office",
-        address: "No. 2, Gaya Road, Off Miller Road, Bompai GRA, Kano, Kano State. Ext: 1042, and 1054"
+        address: "No. 2 Gaya Road, Off Umaru Babura Road, Bompai, Kano, Kano State, Nigeria."
       },
       {
         office: "Regional Manager",
@@ -579,7 +584,7 @@ export const contactData: ContactDataProps[] = [
     branches: [
       {
         office: "Regional Office",
-        address: "Plot 5, Ebeano Housing Estate, Enugu, Enugu State. Tel: 09-4603401 ext: 1035, 1036 and 1052"
+        address: "Plot 5, Ebeano Housing Estate, Enugu, Enugu State."
       },
       {
         office: "Regional Manager",
@@ -637,7 +642,7 @@ export const contactData: ContactDataProps[] = [
     branches: [
       {
         office: "Regional Office",
-        address: "Civil Defence Close, off Goodluck Jonathan Road, Gombe, Gombe State. Tel: 02094603401 ext: 1037, 1038 and 1053"
+        address: "Off Goodluck Ebele Jonathan Street, Opposite Old Nigeria Civil Defense Office, Federal Low-cost, Gombe, Gombe State"
       },
       {
         office: "Regional Manager",
@@ -695,7 +700,7 @@ export const contactData: ContactDataProps[] = [
     branches: [
       {
         office: "Regional Office",
-        address: "Plot 4, Lord Ugboma Crescent, GRA Phase 111, Port Harcourt, Rivers State. Tel: 02094603401 ext: 1043, 1044 and 1051"
+        address: "Plot 4, Lord Ugboma Crescent, Off Abacha Road, Behind Casablanca, G.R.A, Port Harcourt, Rivers State."
       },
       {
         office: "Regional Manager",
@@ -745,7 +750,7 @@ export const contactData: ContactDataProps[] = [
     branches: [
       {
         office: "Regional Office",
-        address: "No. 37A Remi Fani-Kayode Street, GRA, Ikeja, Lagos State. Tel: 02094603401 ext: 1039, 1040 and 1050"
+        address: "No. 37A Remi Fani-Kayode Street, GRA, Ikeja, Lagos State."
       },
       {
         office: "Regional Manager",
