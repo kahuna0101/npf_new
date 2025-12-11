@@ -34,8 +34,8 @@ const Contact = () => {
                 <Image src="/icons/phone.svg" width={24} height={24} alt='phone' />
                 <div className="flex flex-col gap-2.5">
                   <h4 className="text-lg text-black-100 font-medium">Customer Service</h4>
-                  <a href="tel:+2348037869385" className="hover:text-blue-600 text-base font-normal text-grey-100">
-                    08037869385
+                  <a href="tel:+2342094603401" className="hover:text-blue-600 text-base font-normal text-grey-100">
+                    02094603401
                   </a>
                 </div>
               </div>
