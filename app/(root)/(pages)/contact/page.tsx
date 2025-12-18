@@ -34,8 +34,8 @@ const Contact = () => {
                 <Image src="/icons/phone.svg" width={24} height={24} alt='phone' />
                 <div className="flex flex-col gap-2.5">
                   <h4 className="text-lg text-black-100 font-medium">Customer Service</h4>
-                  <a href="tel:+2342094603401" className="hover:text-blue-600 text-base font-normal text-grey-100">
-                    02094603401
+                  <a href="tel:+2342094603400" className="hover:text-blue-600 text-base font-normal text-grey-100">
+                    02094603400
                   </a>
                 </div>
               </div>
@@ -65,7 +65,7 @@ const Contact = () => {
                 <Image src="/icons/clock.svg" width={24} height={24} alt='clock' />
                 <div className="flex flex-col gap-2.5">
                   <h4 className="text-lg text-black-100 font-medium">Business Hours</h4>
-                  <p className="text-base font-normal text-grey-100">Mon - Fri: 8:00 AM - 5:00 PM</p>
+                  <p className="text-base font-normal text-grey-100">Mon - Fri: 8:00 AM - 4:00 PM</p>
                 </div>
               </div>
             </div>
