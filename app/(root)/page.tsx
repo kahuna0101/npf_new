@@ -47,8 +47,7 @@ export default async function Home() {
         <div className="absolute inset-0 bg-black/60 z-10" aria-hidden="true" />
 
         <div className="relative z-10 flex flex-col items-center gap-5">
-          <p className="text-base font-normal text-white capitalize text-center">OUR FUND PRICES</p>
-          <h1 className="text-[40px] leading-13 font-bold text-white text-center">Fund prices as at {new Date().toDateString()}</h1>
+          <h1 className="text-[40px] leading-13 font-bold text-white text-center">36 Month Compounded Rate of Return</h1>
         </div>
 
         <div className="z-10 flex w-full lg:w-[80%] flex-wrap items-center justify-center gap-7.5">
