@@ -13,16 +13,22 @@ export const heroSliderQuery = defineQuery(`*[_type == "slider"] | order(index a
   },
 }`);
 
-export const formsQuery = defineQuery(`*[_type == "form"] | order(_createdAt desc) {
-  _id,
-  title,
-  description,
-  "file": {
-    "url": file.asset->url,
-    "type": file.asset->mimeType,
-    "size": round(file.asset->size / (1024 * 1024), 2)
-  }
-}`)
+export const formsQuery = defineQuery(`
+{
+  "forms": *[_type == "form"] | order(index asc)[$start...$end]{
+    _id,
+    title,
+    description,
+    "file": {
+      "url": file.asset->url,
+      "type": file.asset->mimeType,
+      "size": round(file.asset->size / (1024 * 1024), 2)
+    }
+  },
+  "total": count(*[_type == "form"])
+}
+`);
+
 
 export const jobOpeningsQuery = defineQuery(`*[_type == "job"] | order(_createdAt desc) {
     _id,

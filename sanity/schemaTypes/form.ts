@@ -5,6 +5,11 @@ export const form = defineType({
     title: "Form",
     type: "document",
     fields: [
+         defineField({
+              name: "index",
+              type: "number",
+              validation: (rule) => rule.required(),
+            }),
         defineField({
             name: "title",
             type: "string",

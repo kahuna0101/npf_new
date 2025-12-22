@@ -1,4 +1,5 @@
 import FormDownloadBox from "@/components/FormDownloadBox"
+import PaginationComponent from "@/components/PaginationComponent"
 import { formsQuery } from "@/lib/queries"
 import { client } from "@/sanity/lib/client"
 import { Form } from "@/sanity/types"
@@ -12,9 +13,17 @@ export type FormFile = Omit<Form, "file"> & {
   };
 };
 
-const FormsDownloads = async () => {
+const PAGE_SIZE = 6;
 
-  const formsData = await client.fetch(formsQuery);
+const FormsDownloads = async ( { searchParams }: { searchParams: Promise<{ page?: string }> }) => {
+ 
+  const params = await searchParams;
+  const currentPage = Number(params?.page ?? 1);
+  const start = (currentPage - 1) * PAGE_SIZE;
+  const end = start + PAGE_SIZE;
+  const {forms, total} = await client.fetch(formsQuery, {start, end});
+
+  const totalPages = Math.ceil(total / PAGE_SIZE);
 
   return (
     <section className="w-full">
@@ -29,9 +38,9 @@ const FormsDownloads = async () => {
         </div>
       </div>
 
-      <div className="flex justify-center bg-white-100 p-12 gap-12.5 sm:p-25">
+      <div className="flex flex-col justify-center bg-white-100 p-12 gap-12.5 sm:p-25">
         <div className="flex flex-wrap justify-center w-full md:w-310 gap-7.5">
-          {formsData.map((data: FormFile) => {
+          {forms.map((data: FormFile) => {
 
             return (
               <FormDownloadBox
@@ -46,6 +55,13 @@ const FormsDownloads = async () => {
           }
           )}
         </div>
+        
+        {totalPages > 1 && (
+        <PaginationComponent 
+          currentPage={currentPage}
+          totalPages={totalPages}
+        />
+        )}
 
       </div>
 

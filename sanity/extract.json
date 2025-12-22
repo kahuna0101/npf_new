@@ -424,6 +424,13 @@
           "type": "string"
         }
       },
+      "index": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "number"
+        },
+        "optional": true
+      },
       "title": {
         "type": "objectAttribute",
         "value": {

@@ -86,6 +86,7 @@ export type Form = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
+  index?: number;
   title?: string;
   description?: string;
   file?: {
