@@ -39,7 +39,7 @@ const FormsDownloads = async ( { searchParams }: { searchParams: Promise<{ page?
       </div>
 
       <div className="flex flex-col justify-center bg-white-100 p-12 gap-12.5 sm:p-25">
-        <div className="flex flex-wrap justify-center w-full md:w-310 gap-7.5">
+        <div className="flex flex-wrap justify-center w-full gap-7.5">
           {forms.map((data: FormFile) => {
 
             return (
