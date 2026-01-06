@@ -84,15 +84,19 @@ export default async function Home() {
       </section>
 
       <section className="flex flex-col items-center justify-center bg-white-100 p-12 gap-12.5 sm:p-25">
-        <div className="flex flex-col gap-5">
+        {/* <div className="flex flex-col gap-5">
           <h1 className="section-header">Testimonials</h1>
           <p className="text-base font-normal text-grey-100 text-center">What people have to say about NPF Pensions Limited</p>
-        </div>
+        </div> */}
 
         <div className="flex flex-wrap items-center justify-center gap-8">
-          {testimonials.map((item: Testimonial) => (
+          <div className="md:3xl lg:w-5xl flex flex-col md:flex-row items-center md:items-start gap-7.5 p-7.5 rounded-[10px] border border-red-600/50">
+            <Image src="/images/caveat.png" alt= "caveat" width={90} height={90}/>
+            <p className="text-xl font-normal text-grey-100 text-start">NPF Pensions Limited is wholly committed to the welfare of its clientele (i.e. Personnel of the Nigeria Police Force and their Next of Kin) and as such, no client is required to make any payment to the Company, its employees or any person(s) purporting to be acting on behalf of NPF Pensions Limited, as a condition for accessing any of its services, ranging from simple enquiries to processing and payment of retirement benefits</p>
+          </div>
+          {/* {testimonials.map((item: Testimonial) => (
             <TestimonialBox key={item._id} name={item.name!} occupation={item.occupation!} testimony={item.testimony!} />
-          ))}
+          ))} */}
         </div>
 
         {/* <Link href="/testimonials" className="h-[60px] p-4 border border-blue-100 bg-white text-base font-semibold text-blue-100 rounded-[8px]">View more</Link> */}

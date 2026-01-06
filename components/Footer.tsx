@@ -7,13 +7,13 @@ const Footer = () => {
   return (
     <footer className="w-full md:h-[436px] flex flex-col justify-between bg-white-100 gap-12 px-12 md:px-28 py-12">
       <div className="flex flex-col md:flex-row justify-between gap-8">
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-1 flex-col gap-5">
           <Link href="/" className="flex items-center gap-2">
             <Image src="/images/logo.png" alt="logo" width={60} height={60} />
             <span className="text-base font-semibold text-blue-100">NPF Pensions Limited</span>
           </Link>
 
-          <p className="text-sm font-normal text-grey-100">Securing your financial future with trusted <br /> pension management services across <br /> Nigeria.</p>
+          <p className="text-sm font-normal text-grey-100">Securing your financial future with trusted pension management services across Nigeria.</p>
 
           <div className="flex flex-row gap-5">
             {socialLinks.map((item) => (
@@ -44,7 +44,7 @@ const Footer = () => {
             ))}
           </div>
         </div>
-
+        
         <div className="flex flex-col gap-7">
           <h4 className="text-[18px] font-medium text-black-100">Quicklinks</h4>
           <div className="flex flex-col gap-5">
@@ -74,8 +74,7 @@ const Footer = () => {
           </div>
         </div>
 
-
-        <div className="flex flex-col gap-7">
+        <div className="flex flex-1 flex-col gap-7">
           <h4 className="text-[18px] font-medium text-black-100">Contact Us</h4>
           <div className="flex flex-col gap-5">
             {contacts.map((item) => (

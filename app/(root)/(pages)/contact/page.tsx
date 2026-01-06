@@ -1,9 +1,10 @@
 import ContactForm from "@/components/ContactForm"
 import ContactTabs from "@/components/ContactTabs"
+import { contacts } from "@/data"
 import Image from "next/image"
 
 const Contact = () => {
-  const address = "NPF Pensions Limited House Plot 3820, R.B. Dikko Road, Off Shehu Shagari Way, Central Business District (CBD) Abuja - Nigeria."
+  const address = contacts[2].title;
   return (
     <section className="w-full">
       <div className="relative h-[50vh] md:h-[443px] flex flex-col items-center justify-center p-8 gap-12.5 sm:p-25 bg-[url('/images/vc-bg.jpg')] bg-cover bg-center overflow-hidden">

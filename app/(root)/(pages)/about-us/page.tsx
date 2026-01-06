@@ -27,7 +27,7 @@ const AboutUs = () => {
           <div className="lg:w-155 flex flex-1 flex-col gap-7.5">
             <h1 className="text-[40px] leading-13 font-bold text-black-100">Our Story</h1>
             <p className="text-base font-normal text-grey-100">
-              The Nigeria Police force faced challenges because of the peculiarities the pension scheme. The idea of setting up NPF Pension Limited came as a solution the problem. The company was incorporated on 2ist October 2013 and licensed by National Pension Commission (PenCom) on 12th August 2014.            </p>
+              The Nigeria Police force faced challenges because of the peculiarities of the pension scheme. The idea of setting up NPF Pension Limited came as a solution to the problem. The company was incorporated on the 21st October 2013 and licensed by National Pension Commission (PenCom) on the 12th August 2014.</p>
             <p className="text-base font-normal text-grey-100">
               Today, NPF Pensions ranked top 5 Pension Fund Administrator in the country with Asset Under Management of over 1 trillion.</p>
           </div>
