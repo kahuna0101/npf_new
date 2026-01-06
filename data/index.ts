@@ -88,7 +88,7 @@ export const services: { title: string; href: string }[] = [
 export const contacts: { title: string; href?: string }[] = [
   { title: "(+234) 2094603401", href: "tel:+2342094603401" },
   { title: "info@npfpensions.com", href: "mailto:info@npfpensions.com" },
-  { title: "NPF Building, Victoria Island, Lagos, Nigeria", href: "https://www.google.com/maps?q=NPF+Building,+Victoria+Island,+Lagos,+Nigeria" },
+  { title: "NPF Pensions House Plot 3820, R.B. Dikko Road, Off Shehu Shagari Way, Central Business District (CBD) Abuja - Nigeria.", href: "https://www.google.com/maps/search/?api=1&query=NPF%20Pensions%20House%20Plot%203820%2C%20R.B.%20Dikko%20Road%2C%20Off%20Shehu%20Shagari%20Way%2C%20Central%20Business%20District%20(CBD)%20Abuja%20-%20Nigeria." },
 ]
 
 export const pensionAdministrationData: PensionAdministrationBoxProps[] = [
