@@ -588,15 +588,15 @@ export const contactData: ContactDataProps[] = [
       },
       {
         office: "Regional Manager",
-        address: "Charity Ugwu"
+        address: "Ejike Utazi"
       },
       {
         office: "Phone No",
-        address: "08063398009"
+        address: "08064692056"
       },
       {
         office: "Email",
-        address: "Charity.Ugwu@npfpensions.com, SouthEast@npfpensions.com"
+        address: "ejike.utazi@npfpensions.com, SouthEast@npfpensions.com"
       },
       {
         office: "Imo State",
@@ -646,15 +646,15 @@ export const contactData: ContactDataProps[] = [
       },
       {
         office: "Regional Manager",
-        address: "Abubakar Umar Tongo"
+        address: "Ibrahim Bamusa"
       },
       {
         office: "Phone No",
-        address: "07036174400"
+        address: "08033696585"
       },
       {
         office: "Email",
-        address: "Tongo.Abubakar@npfpensions.com, NorthEast@npfpensions.com"
+        address: "ibrahim.bamusa@npfpensions.com, NorthEast@npfpensions.com"
       },
       {
         office: "Police College",
@@ -675,6 +675,10 @@ export const contactData: ContactDataProps[] = [
       {
         office: "Borno State",
         address: "Police State Command Headquarters, A4-Kano/Jos Road Maiduguri, Borno State"
+      },
+       {
+        office: "Zone 15",
+        address: "Kano/Jos road  Maiduguri, Borno State"
       },
       {
         office: "Zone 12",
