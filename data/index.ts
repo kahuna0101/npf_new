@@ -758,15 +758,15 @@ export const contactData: ContactDataProps[] = [
       },
       {
         office: "Regional Manager",
-        address: "Ejike Utazi."
+        address: "Kayode Oyebisi - Oba."
       },
       {
         office: "Phone No",
-        address: "08064692056"
+        address: "07018122240"
       },
       {
         office: "Email",
-        address: "ejike_utazi@npfpensions.com, SouthWest@npfpensions.com"
+        address: "kayode_oyebisi-oba@NPFPensions.com, SouthWest@npfpensions.com"
       },
       {
         office: "FHQ Annex",
