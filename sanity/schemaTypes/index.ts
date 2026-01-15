@@ -6,7 +6,8 @@ import { job } from './job'
 import { management } from './management'
 import { testimonial } from './testimonial'
 import { fund } from './fund'
+import { auditedAccount } from './auditedAccount'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [director, slider, form, job, management, testimonial, fund],
+  types: [director, slider, form, job, management, testimonial, fund, auditedAccount],
 }

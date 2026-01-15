@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export type FormProps = {
   title: string;
-  description: string;
+  description?: string;
   fileUrl: string;
   fileType: string;
   fileSize: string | number;

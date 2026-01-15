@@ -24,6 +24,7 @@ export const NavbarLinks: { title: string; href?: string; children?: { icon: str
       { icon: "/images/calculator.png", title: "Pension Calculator", href: "/pension-calculator" },
       { icon: "/images/downloads.png", title: "Forms & Downloads", href: "/forms-downloads" },
       { icon: "/images/question.png", title: "FAQs", href: "/faqs" },
+      { icon: "/images/downloads.png", title: "Audited Accounts", href: "/audited-accounts" },
       { icon: "/images/careers.png", title: "Careers", href: "/careers" },
     ]
   },

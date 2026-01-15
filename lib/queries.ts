@@ -29,6 +29,21 @@ export const formsQuery = defineQuery(`
 }
 `);
 
+export const auditedAccountsQuery = defineQuery(`
+{
+  "forms": *[_type == "auditedAccount"] | order(index desc)[$start...$end]{
+    _id,
+    title,
+    "file": {
+      "url": file.asset->url,
+      "type": file.asset->mimeType,
+      "size": round(file.asset->size / (1024 * 1024), 2)
+    }
+  },
+  "total": count(*[_type == "auditedAccount"])
+}
+`);
+
 
 export const jobOpeningsQuery = defineQuery(`*[_type == "job"] | order(_createdAt desc) {
     _id,
