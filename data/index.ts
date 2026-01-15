@@ -133,6 +133,12 @@ export const quickActionsData: QuickActionsBoxProps[] = [
     icon: "/icons/question.svg"
   },
   {
+    title: "Audited Accounts",
+    description: "Access Audited documents",
+    href: "/audited-accounts",
+    icon: "/icons/downloads.svg"
+  },
+  {
     title: "Client Portal",
     description: "Access your account",
     href: "https://online.npfpensions.com.ng/NPFSelfServices/Login.aspx#!",
