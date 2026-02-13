@@ -12,20 +12,15 @@ const PrivacyPolicy = () => {
           <h1 className="text-3xl md:text-5xl font-bold text-white">
             Privacy Policy
           </h1>
-          <p className="text-base font-normal text-grey-100 text-center">
+          <p className="text-base font-normal text-white-100 text-center">
             Learn how NPFPension collects, uses, and protects your personal
-            information when using our mobile application.
+            information when using our website.
           </p>
         </div>
       </div>
 
       <div className="flex justify-center bg-white-100 px-6 py-16 sm:px-12 lg:px-24">
         <div className="w-full max-w-4xl space-y-10">
-
-          <p className="text-sm text-grey-100 text-right">
-            Last updated: February 13, 2026
-          </p>
-
           <div className="space-y-4">
             <h2 className="text-2xl font-semibold text-grey-200">
               Introduction
