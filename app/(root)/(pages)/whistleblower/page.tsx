@@ -11,7 +11,7 @@ const Whistleblower = () => {
 
         <div className="absolute z-10 flex flex-col items-center gap-7.5 text-center p-8">
           <h1 className="text-3xl md:text-5xl font-bold text-white">Whistle Blowing</h1>
-          <p className="text-base md:text-lg font-medium text-white text-center"></p>
+          <p className="text-base font-normal text-grey-100 text-center"></p>
         </div>
       </div>
 

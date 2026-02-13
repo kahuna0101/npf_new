@@ -78,6 +78,7 @@ export const quickLinks: { title: string; href: string }[] = [
   { title: "Whistleblower", href: "/whistleblower" },
   { title: "Benefits", href: "/benefits" },
   { title: "FAQs", href: "/faqs" },
+  { title: "Privacy Policy", href: "/privacy-policy" }
 ]
 
 export const services: { title: string; href: string }[] = [
