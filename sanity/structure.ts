@@ -10,6 +10,7 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem('form').title('Forms'),
       S.documentTypeListItem('auditedAccount').title('Audited Accounts'),
       S.documentTypeListItem('job').title('Job Opening'),
+      S.documentTypeListItem('newsletter').title('Newsletters'),
       S.documentTypeListItem('management').title('Managements'),
       S.documentTypeListItem('testimonial').title('Testimonials'),
       S.documentTypeListItem('fund').title('Fund Prices'),

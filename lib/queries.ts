@@ -29,6 +29,22 @@ export const formsQuery = defineQuery(`
 }
 `);
 
+export const newslettersQuery = defineQuery(`
+{
+  "forms": *[_type == "newsletter"] | order(index desc)[$start...$end]{
+    _id,
+    title,
+    description,
+    "file": {
+      "url": file.asset->url,
+      "type": file.asset->mimeType,
+      "size": round(file.asset->size / (1024 * 1024), 2)
+    }
+  },
+  "total": count(*[_type == "newsletter"])
+}
+`);
+
 export const auditedAccountsQuery = defineQuery(`
 {
   "forms": *[_type == "auditedAccount"] | order(index desc)[$start...$end]{

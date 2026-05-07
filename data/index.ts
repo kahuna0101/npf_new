@@ -6,6 +6,7 @@ import { careerWhyProps } from "@/app/(root)/(pages)/careers/page";
 import { FaqsDataProps } from "@/components/FaqTabs";
 import { valueProps } from "@/app/(root)/(pages)/about-us/page";
 import { ContactDataProps } from "@/components/ContactTabs";
+import { enrollmentDataProps, KeyBenefitsDataProps } from "@/app/(root)/(pages)/pencare/page";
 
 export const NavbarLinks: { title: string; href?: string; children?: { icon: string; title: string; href: string }[] }[] = [
   { title: "Home", href: "/" },
@@ -15,6 +16,7 @@ export const NavbarLinks: { title: string; href?: string; children?: { icon: str
       { icon: "/images/retirement.png", title: "Retirement Savings Account (RSA)", href: "/retirement-savings-account" },
       { icon: "/images/hand-gear.png", title: "Voluntary Contributions (VC)", href: "/voluntary-contributions" },
       { icon: "/images/mortgage.png", title: "RSA Mortgage Equity Contribution", href: "/mortgage-equity-contribution" },
+      { icon: "/images/health-care.png", title: "PenCare", href: "/pencare" }
     ]
   },
   { title: "Benefits", href: "/benefits" },
@@ -26,6 +28,7 @@ export const NavbarLinks: { title: string; href?: string; children?: { icon: str
       { icon: "/images/question.png", title: "FAQs", href: "/faqs" },
       { icon: "/images/downloads.png", title: "Audited Accounts", href: "/audited-accounts" },
       { icon: "/images/careers.png", title: "Careers", href: "/careers" },
+      { icon: "/images/newsletter.png", title: "Newsletters", href: "/newsletters" },
     ]
   },
   {
@@ -74,9 +77,12 @@ export const socialLinks: { icon: string; href: string; alt: string; color: stri
 
 export const quickLinks: { title: string; href: string }[] = [
   { title: "About Us", href: "/about-us" },
+  { title: "PenCom", href: "https://www.pencom.gov.ng/" },
   { title: "Pension Calculator", href: "/pension-calculator" },
   { title: "Whistleblower", href: "/whistleblower" },
   { title: "Benefits", href: "/benefits" },
+  { title: "PenCare", href: "/pencare" },
+  { title: "Newsletters", href: "/newsletters" },
   { title: "FAQs", href: "/faqs" },
   { title: "Privacy Policy", href: "/privacy-policy" }
 ]
@@ -140,9 +146,9 @@ export const quickActionsData: QuickActionsBoxProps[] = [
     icon: "/icons/downloads.svg"
   },
   {
-    title: "Client Portal",
+    title: "DRE Portal",
     description: "Access your account",
-    href: "https://online.npfpensions.com.ng/NPFSelfServices/Login.aspx#!",
+    href: "https://pensionrecap.pencom.gov.ng/",
     icon: "/icons/portal.svg"
   },
   {
@@ -150,6 +156,12 @@ export const quickActionsData: QuickActionsBoxProps[] = [
     description: "Access PenCom Guidelines",
     href: "https://www.pencom.gov.ng/category/regulations-codes/",
     icon: "/icons/downloads.svg"
+  },
+  {
+    title: "First Pension",
+    description: "First Pension Custodian",
+    href: "https://firstpensioncustodian.com/",
+    icon: "/images/First-Pension-Custiodian.png"
   },
 ]
 
@@ -191,6 +203,39 @@ export const pensionPageData: PensionPageProps[] = [
 
 export const howItWorksData: string[] = [
   "Complete our simple application form", "Provide required documentation", "Make your initial contribution", "Start growing your retirement savings"
+]
+
+export const keybenefitsData: KeyBenefitsDataProps[] = [
+  {
+    img: "/icons/form.svg",
+    title: "Simple Enrollment",
+    description: "Quick and straightforward enrollment process requiring minimal documentation and your explicit informed consent.",
+  },
+  {
+    img: "/icons/health-care.svg",
+    title: "No Cost Healthcare",
+    description: "Access healthcare services from designated HMO facilities at absolutely no cost to you as an eligible retiree.",
+  },
+  {
+    img: "/icons/guard.svg",
+    title: "Data Protection",
+    description: "Your personal information is handled with strict adherence to applicable data protection requirements and privacy standards.",
+  }
+]
+
+export const enrollmentData: enrollmentDataProps[] = [
+  {
+    title: "Download & Review",
+    description: "Download and carefully review the Consent Letter document provided. Take time to understand all terms and conditions.",
+  },
+  {
+    title: "Complete the Form",
+    description: "Fill the consent form correctly with your accurate information including name, RSA PIN, and contact details.",
+  },
+  {
+    title: "Provide Consent",
+    description: "Submit your consent either electronically via the provided link or by signing and returning the physical copy.",
+  }
 ]
 
 export const benefitsPageData: BenefitsPageProps[] = [

@@ -1,4 +1,4 @@
-import ContactForm from '@/components/ContactForm'
+import WhistleblowingForm from '@/components/WhistleblowingForm'
 import Link from 'next/link'
 
 const Whistleblower = () => {
@@ -16,7 +16,7 @@ const Whistleblower = () => {
       </div>
 
       <div className="flex justify-center items-center bg-white-100 p-12 gap-12.5 sm:p-25">
-        <ContactForm />
+        <WhistleblowingForm />
       </div>
 
       <div className="flex flex-col items-center justify-center bg-white p-8 gap-12.5 sm:p-25">

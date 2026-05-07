@@ -5,7 +5,7 @@ import Link from "next/link"
 
 const Footer = () => {
   return (
-    <footer className="w-full md:h-[436px] flex flex-col justify-between bg-white-100 gap-12 px-12 md:px-28 py-12">
+    <footer className="w-full md:h-full flex flex-col justify-between bg-white-100 gap-12 px-12 md:px-28 py-12">
       <div className="flex flex-col md:flex-row justify-between gap-8">
         <div className="flex flex-1 flex-col gap-5">
           <Link href="/" className="flex items-center gap-2">
@@ -44,18 +44,26 @@ const Footer = () => {
             ))}
           </div>
         </div>
-        
+
         <div className="flex flex-col gap-7">
           <h4 className="text-[18px] font-medium text-black-100">Quicklinks</h4>
           <div className="flex flex-col gap-5">
-            {quickLinks.map((item) => (
-              <Link
-                key={item.title}
-                href={item.href}
-              >
-                <p className="text-sm font-normal text-grey-100 hover:text-blue-100">{item.title}</p>
-              </Link>
-            ))}
+            {quickLinks.map((item) => {
+              const isExternal = item.href?.startsWith('https');
+
+              return (
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  target={isExternal ? "_blank" : undefined}
+                  rel={isExternal ? "noopener noreferrer" : undefined}
+                >
+                  <p className="text-sm font-normal text-grey-100 hover:text-blue-100">
+                    {item.title}
+                  </p>
+                </Link>
+              );
+            })}
           </div>
 
         </div>

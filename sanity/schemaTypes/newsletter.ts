@@ -1,9 +1,10 @@
 import { defineField, defineType } from "sanity";
 
-export const management = defineType({
-  name: "management",
-  title: "Management",
+export const newsletter = defineType({
+  name: "newsletter",
+  title: "Newsletter",
   type: "document",
+
   fields: [
     defineField({
       name: "index",
@@ -17,34 +18,36 @@ export const management = defineType({
           apiVersion: "2024-01-01",
         });
 
-        const managements = await client.fetch(
-          `*[_type == "management"] | order(index desc)[0]{
+        const newsletters = await client.fetch(
+          `*[_type == "newsletter"] | order(index desc)[0]{
             index
           }`
         );
 
-        return managements?.index ? managements.index + 1 : 1;
+        return newsletters?.index ? newsletters.index + 1 : 1;
       },
 
       validation: (rule) => rule.required(),
     }),
+
     defineField({
-      name: "name",
+      name: "title",
       type: "string",
       validation: (rule) => rule.required(),
     }),
+
     defineField({
-      name: "image",
-      type: "image",
-    }),
-    defineField({
-      name: "role",
+      name: "description",
       type: "string",
       validation: (rule) => rule.required(),
     }),
+
     defineField({
-      name: "bio",
-      type: "text",
+      name: "file",
+      type: "file",
+      options: {
+        accept: "application/pdf",
+      },
       validation: (rule) => rule.required(),
     }),
   ],

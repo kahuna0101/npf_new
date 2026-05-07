@@ -13,6 +13,26 @@
  */
 
 // Source: schema.json
+export type AuditedAccount = {
+  _id: string;
+  _type: "auditedAccount";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  index?: number;
+  title?: string;
+  file?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
+    };
+    media?: unknown;
+    _type: "file";
+  };
+};
+
 export type Fund = {
   _id: string;
   _type: "fund";
@@ -35,6 +55,27 @@ export type Testimonial = {
   name?: string;
   occupation?: string;
   testimony?: string;
+};
+
+export type Newsletter = {
+  _id: string;
+  _type: "newsletter";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  index?: number;
+  title?: string;
+  description?: string;
+  file?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
+    };
+    media?: unknown;
+    _type: "file";
+  };
 };
 
 export type Management = {
@@ -266,5 +307,5 @@ export type Slug = {
   source?: string;
 };
 
-export type AllSanitySchemaTypes = Fund | Testimonial | Management | SanityImageCrop | SanityImageHotspot | Job | Form | Slider | Director | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint | Slug;
+export type AllSanitySchemaTypes = AuditedAccount | Fund | Testimonial | Newsletter | Management | SanityImageCrop | SanityImageHotspot | Job | Form | Slider | Director | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint | Slug;
 export declare const internalGroqTypeReferenceTo: unique symbol;

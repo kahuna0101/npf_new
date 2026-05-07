@@ -75,7 +75,7 @@ const Navbar = () => {
                     <ChevronDownIcon />
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="xl:mt-3 bg-white-100">
-                    <ul className="flex w-screen gap-3 h-60 justify-center items-center ">
+                    <ul className="flex flex-wrap w-screen gap-3 h-fit py-4 justify-center items-center ">
                       {item.children.map((child) => (
                         <DropdownItem
                           key={child.title}

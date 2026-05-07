@@ -16,10 +16,10 @@ import {
 import { Input } from "@/components/ui/input"
 import Image from "next/image"
 import { Textarea } from "./ui/textarea"
-import { SendContactFormMail } from "@/lib/mailSender"
 import { contactSchema } from "@/lib/form-validation"
 import { toast } from "sonner"
 import { Loader2 } from "lucide-react"
+import { SendContactFormMail } from "@/lib/actions/sendMail"
 
 
 const ContactForm = () => {
@@ -40,7 +40,7 @@ const ContactForm = () => {
     const response = await SendContactFormMail(values);
 
     if (response.success) {
-      toast.success("Your Form has been submitted, our representative will reach out to you soon.")
+      toast.success("Your Messaage has been received, our representative will reach out to you soon.")
       form.reset()
     } else {
       toast.error("Error submitting Contact Form")
@@ -140,7 +140,7 @@ const ContactForm = () => {
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={isSubmitting} className="h-15 bg-blue-100 hover:bg-yellow-100 text-base font-semibold border hover:border-none border-blue-100 text-white rounded-[8px]">{isSubmitting ? (<><Loader2 className="w-5 h-5 animate-spin" />Submitting...</>) : ("Submit")}</Button>
+        <Button type="submit" disabled={isSubmitting} className="h-15 bg-blue-100 cursor-pointer hover:bg-yellow-100 text-base font-semibold border hover:border-none border-blue-100 text-white rounded-[8px]">{isSubmitting ? (<><Loader2 className="w-5 h-5 animate-spin" />Submitting...</>) : ("Submit")}</Button>
       </form>
     </Form>
   )

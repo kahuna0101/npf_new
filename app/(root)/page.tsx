@@ -9,7 +9,9 @@ import { pensionAdministrationData, quickActionsData, whyChooseData } from "@/da
 import { testimonialsQuery } from "@/lib/queries";
 import { client } from "@/sanity/lib/client";
 import { Testimonial } from "@/sanity/types";
+import { Calculator, Users } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function Home() {
   const testimonials = (await client.fetch(testimonialsQuery)).slice(0, 2);
@@ -27,6 +29,24 @@ export default async function Home() {
           {pensionAdministrationData.map((item, index) => (
             <PensionAdministrationBox key={index} title={item.title} description={item.description} href={item.href} icon={item.icon} />
           ))}
+        </div>
+      </section>
+
+      <section className="relative flex flex-col h-svh items-center justify-center bg-[url('/images/old-couples.jpg')] bg-cover bg-center p-8 gap-12.5 sm:p-25">
+        <div className="absolute inset-0 bg-black/60 z-10" aria-hidden="true" />
+
+        <h3 className="font-bold z-10 flex flex-col text-5xl sm:text-6xl text-center py-4">
+          <span className="text-white">Prioritize Your Health</span>
+          <span className="text-yellow-100">With PenCare Today</span>
+        </h3>
+        <p className="font-medium z-10 text-xl text-white text-center py-4">
+          Exclusive and free health coverage designed specifically for our valued Retirees on Programmed Withdrawal.
+        </p>
+
+        <div className="flex flex-col z-10 md:flex-row gap-5">
+          <Link href="/pencare" className="w-60 h-14 bg-blue-100 hover:bg-yellow-100 text-base font-semibold border hover:border-none border-blue-100 text-white mx-auto rounded-md flex items-center justify-center relative">
+            Discover PenCare
+          </Link>
         </div>
       </section>
 
@@ -52,6 +72,49 @@ export default async function Home() {
 
         <div className="z-10 flex w-full lg:w-[80%] flex-wrap items-center justify-center gap-7.5">
           <FundPriceTable />
+        </div>
+
+        <div className="relative z-10 flex flex-wrap justify-center items-center gap-5">
+          <div className="w-68 h-60 flex flex-col justify-center items-center bg-light-green-100 rounded-[20px] shadow-sm border px-6 py-8 duration-300 text-center">
+
+            <div className="mb-4 rounded-full bg-emerald-100 p-3 text-emerald-600 transition-colors duration-300 group-hover:bg-emerald-500 group-hover:text-white">
+              <Calculator size={24} strokeWidth={2} />
+            </div>
+
+            <h4 className="text-[17px] font-bold text-emerald-950 group-hover:text-white transition-colors duration-300 leading-tight mb-3">
+              Administrative Fees Charged
+            </h4>
+
+            <div className="space-y-1.5 flex flex-col items-center">
+              <p className="text-sm font-bold text-emerald-800 group-hover:text-emerald-50 transition-colors duration-300">
+                #107.50 monthly plus VAT of 5%
+              </p>
+              <p className="text-xs font-normal text-emerald-600 group-hover:text-emerald-100 transition-colors duration-300">
+                Deducted from your monthly contributions.
+              </p>
+            </div>
+          </div>
+
+          <div className="w-68 h-60 flex flex-col justify-center items-center bg-light-green-100 rounded-[20px] shadow-sm border px-6 py-8 duration-300 text-center">
+
+            <div className="mb-4 rounded-full bg-emerald-100 p-3 text-emerald-600 transition-colors duration-300 group-hover:bg-emerald-500 group-hover:text-white">
+              <Users size={24} strokeWidth={2} />
+            </div>
+
+            <h4 className="text-[17px] font-bold text-emerald-950 group-hover:text-white transition-colors duration-300 leading-tight mb-3">
+              RSA Registered Accounts
+            </h4>
+
+            <div className="space-y-1.5 flex flex-col items-center">
+              <p className="text-2xl font-bold text-emerald-800 group-hover:text-emerald-50 transition-colors duration-300">
+                450+
+              </p>
+              <p className="text-xs font-normal text-emerald-600 group-hover:text-emerald-100 transition-colors duration-300">
+                Total number of accounts.
+              </p>
+            </div>
+
+          </div>
         </div>
       </section>
 
@@ -91,7 +154,7 @@ export default async function Home() {
 
         <div className="flex flex-wrap items-center justify-center gap-8">
           <div className="md:3xl lg:w-5xl flex flex-col md:flex-row items-center md:items-start gap-7.5 p-7.5 rounded-[10px] border border-red-600/50">
-            <Image src="/images/caveat.png" alt= "caveat" width={90} height={90}/>
+            <Image src="/images/caveat.png" alt="caveat" width={90} height={90} />
             <p className="text-xl font-normal text-grey-100 text-start">NPF Pensions Limited is wholly committed to the welfare of its clientele (i.e. Personnel of the Nigeria Police Force and their Next of Kin) and as such, no client is required to make any payment to the Company, its employees or any person(s) purporting to be acting on behalf of NPF Pensions Limited, as a condition for accessing any of its services, ranging from simple enquiries to processing and payment of retirement benefits</p>
           </div>
           {/* {testimonials.map((item: Testimonial) => (
