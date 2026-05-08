@@ -17,7 +17,7 @@ export default function HomePopup() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setOpen(true)
-        }, 1000) // opens after 1 second
+        }, 1000)
 
         return () => clearTimeout(timer)
     }, [])

@@ -152,10 +152,10 @@ export const quickActionsData: QuickActionsBoxProps[] = [
     icon: "/icons/portal.svg"
   },
   {
-    title: "PenCom Guidelines",
-    description: "Access PenCom Guidelines",
-    href: "https://www.pencom.gov.ng/category/regulations-codes/",
-    icon: "/icons/downloads.svg"
+    title: "PenCom",
+    description: "National Pension Commission",
+    href: "https://www.pencom.gov.ng/",
+    icon: "/images/pencom.png"
   },
   {
     title: "First Pension",

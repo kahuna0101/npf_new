@@ -7,7 +7,7 @@ import PensionAdministrationBox from "@/components/PensionAdministrationBox";
 import QuickActionsBox from "@/components/QuickActionsBox";
 import TestimonialBox from "@/components/TestimonialBox";
 import { pensionAdministrationData, quickActionsData, whyChooseData } from "@/data";
-import { testimonialsQuery } from "@/lib/queries";
+import { registeredAccountsQuery, testimonialsQuery } from "@/lib/queries";
 import { client } from "@/sanity/lib/client";
 import { Testimonial } from "@/sanity/types";
 import { Calculator, Users } from "lucide-react";
@@ -16,6 +16,7 @@ import Link from "next/link";
 
 export default async function Home() {
   const testimonials = (await client.fetch(testimonialsQuery)).slice(0, 2);
+  const accounts = (await client.fetch(registeredAccountsQuery));
 
   return (
     <>
@@ -109,7 +110,7 @@ export default async function Home() {
 
             <div className="space-y-1.5 flex flex-col items-center">
               <p className="text-2xl font-bold text-emerald-800 group-hover:text-emerald-50 transition-colors duration-300">
-                450+
+                {accounts.map((index:any) => index.registeredAccounts)}
               </p>
               <p className="text-xs font-normal text-emerald-600 group-hover:text-emerald-100 transition-colors duration-300">
                 Total number of accounts.

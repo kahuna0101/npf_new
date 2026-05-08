@@ -60,6 +60,10 @@ export const auditedAccountsQuery = defineQuery(`
 }
 `);
 
+export const registeredAccountsQuery = defineQuery(`*[_type == "registeredAccounts"] {
+  registeredAccounts
+}`
+);
 
 export const jobOpeningsQuery = defineQuery(`*[_type == "job"] | order(_createdAt desc) {
     _id,
