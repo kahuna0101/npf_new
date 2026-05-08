@@ -1,5 +1,6 @@
 import FundPriceTable from "@/components/FundPriceTable";
 import { HeroSlider } from "@/components/HeroSlider";
+import HomePopup from "@/components/HomePopup";
 import NewsletterForm from "@/components/NewsletterForm";
 import OpenAccountButtons from "@/components/OpenAccountButtons";
 import PensionAdministrationBox from "@/components/PensionAdministrationBox";
@@ -18,6 +19,7 @@ export default async function Home() {
 
   return (
     <>
+    <HomePopup />
       <HeroSlider />
       <section className="flex flex-col items-center justify-center bg-white-100 p-12 gap-12.5 sm:p-25">
         <div className="flex flex-col gap-5">
