@@ -110,7 +110,7 @@ export default async function Home() {
 
             <div className="space-y-1.5 flex flex-col items-center">
               <p className="text-2xl font-bold text-emerald-800 group-hover:text-emerald-50 transition-colors duration-300">
-                {accounts.map((index:any) => index.registeredAccounts)}
+                {accounts.map((item:any) =>  Number(item.registeredAccounts).toLocaleString())}
               </p>
               <p className="text-xs font-normal text-emerald-600 group-hover:text-emerald-100 transition-colors duration-300">
                 Total number of accounts.
@@ -174,8 +174,9 @@ export default async function Home() {
           <p className="text-base font-normal text-grey-100 text-center">We are licensed and regulated by Pension regulatory bodies</p>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-7.5">
+        <div className="flex flex-wrap items-center justify-center gap-19.5">
           <Image src="/images/pencom.png" alt="pencom logo" width={100} height={180} />
+          <Image src="/images/ndpa.jpg" alt="ndpa logo" width={280} height={180} />
         </div>
       </section>
 

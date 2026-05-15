@@ -13,6 +13,15 @@
  */
 
 // Source: schema.json
+export type RegisteredAccounts = {
+  _id: string;
+  _type: "registeredAccounts";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  registeredAccounts?: number;
+};
+
 export type AuditedAccount = {
   _id: string;
   _type: "auditedAccount";
@@ -307,5 +316,5 @@ export type Slug = {
   source?: string;
 };
 
-export type AllSanitySchemaTypes = AuditedAccount | Fund | Testimonial | Newsletter | Management | SanityImageCrop | SanityImageHotspot | Job | Form | Slider | Director | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint | Slug;
+export type AllSanitySchemaTypes = RegisteredAccounts | AuditedAccount | Fund | Testimonial | Newsletter | Management | SanityImageCrop | SanityImageHotspot | Job | Form | Slider | Director | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint | Slug;
 export declare const internalGroqTypeReferenceTo: unique symbol;
