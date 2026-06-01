@@ -176,7 +176,7 @@ export default async function Home() {
 
         <div className="flex flex-wrap items-center justify-center gap-19.5">
           <Image src="/images/pencom.png" alt="pencom logo" width={100} height={180} />
-          <Image src="/images/ndpa.jpg" alt="ndpa logo" width={280} height={180} />
+          <Image src="/images/ndpa.jpg" alt="ndpa logo" width={180} height={180} />
         </div>
       </section>
 
