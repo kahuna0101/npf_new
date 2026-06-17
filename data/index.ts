@@ -29,6 +29,7 @@ export const NavbarLinks: { title: string; href?: string; children?: { icon: str
       { icon: "/images/downloads.png", title: "Audited Accounts", href: "/audited-accounts" },
       { icon: "/images/careers.png", title: "Careers", href: "/careers" },
       { icon: "/images/newsletter.png", title: "Newsletters", href: "/newsletters" },
+      { icon: "/images/gallery.png", title: "Gallery", href: "/galley" },
     ]
   },
   {
@@ -84,6 +85,7 @@ export const quickLinks: { title: string; href: string }[] = [
   { title: "PenCare", href: "/pencare" },
   { title: "Newsletters", href: "/newsletters" },
   { title: "FAQs", href: "/faqs" },
+  { title: "Gallery", href: "/gallery" },
   { title: "Privacy Policy", href: "/privacy-policy" }
 ]
 

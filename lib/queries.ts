@@ -122,3 +122,15 @@ export const fundPriceQuery = defineQuery(`*[_type == "fund"] | order(_createdAt
   fund3,
   fund4
 }`);
+
+export const galleryQuery = `{ "data": *[_type == "gallery"] | order(_createdAt desc)[$start...$end] {
+    _id,
+    title,
+    event,
+    category,
+    date,
+    images
+  },
+  "total": count(*[_type == "gallery"])
+}
+`;
