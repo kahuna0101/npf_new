@@ -1,20 +1,19 @@
 "use client"
 
 import Link from "next/link"
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
 
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 import {
   Sheet,
@@ -69,7 +68,7 @@ const Navbar = () => {
                   <DropdownMenuTrigger
                     className={`flex justify-center items-center md:text-sm lg:text-base font-semibold p-4 rounded-md bg-transparent focus-visible:outline-none focus-visible:ring-0 hover:text-white hover:bg-yellow-100 data-[state=open]:bg-yellow-100 data-[state=open]:text-white ${(hasActiveChild || openMenus[item.title]) ? "bg-yellow-100 text-white" : "text-black-100"
                       }`}
-                      key={item.title}
+                    key={item.title}
                   >
                     {item.title}
                     <ChevronDownIcon />
@@ -118,7 +117,7 @@ const Navbar = () => {
             />
           </SheetTrigger>
 
-          <SheetContent side="right" className="flex flex-col gap-4 w-full border-none bg-white">
+          <SheetContent side="right" className="flex flex-col h-screen w-full border-none bg-white">
             <SheetHeader>
               <VisuallyHidden>
                 <SheetTitle>Mobile Menu</SheetTitle>
@@ -133,49 +132,82 @@ const Navbar = () => {
               </div>
             </SheetHeader>
 
-            <div className="flex flex-col p-2">
+            <div className="flex-1 overflow-y-auto p-2">
               <nav className="flex flex-col gap-3">
-                <NavigationMenu orientation="vertical" viewport={false} className="flex flex-col justify-start items-start w-full h-full">
-                  <NavigationMenuList className="flex flex-col gap-4 items-start w-[95vw]">
-                    {NavbarLinks.map((item) => {
-                      const isActive = item.href === pathname;
-                      const hasActiveChild = !!item.children && item.children.some(child => child.href === pathname);
+                <Accordion
+                  type="multiple"
+                  className="w-full"
+                >
+                  {NavbarLinks.map((item) => {
+                    const isActive = item.href === pathname;
+                    const hasActiveChild =
+                      !!item.children &&
+                      item.children.some((child) => child.href === pathname);
+
+                    if (item.children) {
                       return (
-                        <NavigationMenuItem key={item.title} className="w-full">
-                          {item.children ? (
-                            <>
-                              <NavigationMenuTrigger key={item.title} className={`w-full flex justify-start items-center p-4 py-6.5 text-left md:text-sm lg:text-base font-semibold rounded-md bg-transparent focus-visible:outline-none focus-visible:ring-0 hover:text-white hover:bg-yellow-100 data-[state=open]:bg-yellow-100 data-[state=open]:hover:bg-yellow-100 data-[state=open]:focus:bg-yellow-100 ${(hasActiveChild || openMenus[item.title]) ? "bg-yellow-100 text-white" : "text-black-100"
-                                }`}>{item.title}</NavigationMenuTrigger>
-                              <NavigationMenuContent>
-                                <ul className="flex flex-col gap-2">
-                                  {item.children.map((child) => (
-                                    <ListItem
-                                      key={child.href}
-                                      title={child.title}
-                                      icon={child.icon}
+                        <AccordionItem
+                          key={item.title}
+                          value={item.title}
+                          className="border-b"
+                        >
+                          <AccordionTrigger
+                            className={`px-4 py-4 text-left font-semibold hover:no-underline ${hasActiveChild
+                                ? "bg-yellow-100 text-white rounded-md"
+                                : "text-black-100"
+                              }`}
+                          >
+                            {item.title}
+                          </AccordionTrigger>
+
+                          <AccordionContent>
+                            <ul className="flex flex-col gap-2 py-2">
+                              {item.children.map((child) => (
+                                <li key={child.href}>
+                                  <SheetClose asChild>
+                                    <Link
                                       href={child.href}
-                                    />
-                                  ))}
-                                </ul>
-                              </NavigationMenuContent>
-                            </>
-                          ) : (
-                            <NavigationMenuLink asChild>
-                              <SheetClose asChild>
-                                <Link
-                                  href={item.href as string}
-                                  className={`w-full text-left md:text-sm lg:text-base font-semibold rounded-md text-black-100 hover:text-white hover:bg-yellow-100 p-4 ${isActive ? "bg-yellow-100 text-white" : ""}`}
-                                >
-                                  {item.title}
-                                </Link>
-                              </SheetClose>
-                            </NavigationMenuLink>
-                          )}
-                        </NavigationMenuItem>
-                      )
-                    })}
-                  </NavigationMenuList>
-                </NavigationMenu>
+                                      className={`flex items-center gap-3 rounded-md px-6 py-3 text-sm font-medium transition-colors hover:bg-yellow-100 hover:text-white ${pathname === child.href
+                                          ? "bg-yellow-100 text-white"
+                                          : ""
+                                        }`}
+                                    >
+                                      {child.icon && (
+                                        <Image
+                                          src={child.icon}
+                                          alt={child.title}
+                                          width={18}
+                                          height={18}
+                                        />
+                                      )}
+                                      {child.title}
+                                    </Link>
+                                  </SheetClose>
+                                </li>
+                              ))}
+                            </ul>
+                          </AccordionContent>
+                        </AccordionItem>
+                      );
+                    }
+
+                    return (
+                      <div key={item.title}>
+                        <SheetClose asChild>
+                          <Link
+                            href={item.href as string}
+                            className={`block rounded-md px-4 py-4 font-semibold transition-colors hover:bg-yellow-100 hover:text-white ${isActive
+                                ? "bg-yellow-100 text-white"
+                                : "text-black-100"
+                              }`}
+                          >
+                            {item.title}
+                          </Link>
+                        </SheetClose>
+                      </div>
+                    );
+                  })}
+                </Accordion>
               </nav>
             </div>
             <Separator />
@@ -183,30 +215,30 @@ const Navbar = () => {
             <div className="flex flex-row justify-evenly gap-2 px-5">
               {socialLinks.map((item) => (
                 <SheetClose asChild>
-                <Link
-                  key={item.alt}
-                  href={item.href}
-                  target="_blank"
-                  className="group flex items-center"
-                  style={{ ["--icon-hover-color" as any]: item.color }}
-                >
-                  <div
-                    aria-hidden
-                    className="w-6 h-6 transition-colors duration-200 bg-grey-100 group-hover:bg-[var(--icon-hover-color)]"
-                    style={
-                      {
-                        WebkitMaskImage: `url(${item.icon})`,
-                        maskImage: `url(${item.icon})`,
-                        WebkitMaskRepeat: "no-repeat",
-                        maskRepeat: "no-repeat",
-                        WebkitMaskSize: "contain",
-                        maskSize: "contain",
-                        WebkitMaskPosition: "center",
-                        maskPosition: "center",
-                      } as React.CSSProperties
-                    }
-                  />
-                </Link>          
+                  <Link
+                    key={item.alt}
+                    href={item.href}
+                    target="_blank"
+                    className="group flex items-center"
+                    style={{ ["--icon-hover-color" as any]: item.color }}
+                  >
+                    <div
+                      aria-hidden
+                      className="w-6 h-6 transition-colors duration-200 bg-grey-100 group-hover:bg-[var(--icon-hover-color)]"
+                      style={
+                        {
+                          WebkitMaskImage: `url(${item.icon})`,
+                          maskImage: `url(${item.icon})`,
+                          WebkitMaskRepeat: "no-repeat",
+                          maskRepeat: "no-repeat",
+                          WebkitMaskSize: "contain",
+                          maskSize: "contain",
+                          WebkitMaskPosition: "center",
+                          maskPosition: "center",
+                        } as React.CSSProperties
+                      }
+                    />
+                  </Link>
                 </SheetClose>
               ))}
             </div>
@@ -236,26 +268,6 @@ const Navbar = () => {
 }
 
 export default Navbar
-
-function ListItem({
-  title,
-  icon,
-  href,
-  ...props
-}: React.ComponentPropsWithoutRef<"li"> & { href: string, icon: string }) {
-  return (
-    <li {...props}>
-      <NavigationMenuLink asChild>
-        <SheetClose asChild>
-          <Link href={href} className="flex flex-row justify-start items-center gap-2.5 rounded-[10px] bg-white border-2 border-green-100">
-            <Image src={icon} alt={title as string} width={30} height={30} />
-            <p className="text-sm leading-none font-medium text-black-100">{title}</p>
-          </Link>
-        </SheetClose>
-      </NavigationMenuLink>
-    </li>
-  )
-}
 
 function DropdownItem({
   title,
